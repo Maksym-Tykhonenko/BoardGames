@@ -15,9 +15,9 @@ const HistoryScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/imgonline-com-ua-Resize-sTuE6CAxqAd.jpg')}
+        source={require('../assets/bgr1.jpeg')}
         style={{flex: 1}}>
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1, marginHorizontal: 10}}>
           {/**SIDEBAR BTN */}
           <View style={{}}>
             <TouchableOpacity
@@ -27,6 +27,7 @@ const HistoryScreen = ({navigation}) => {
                 backgroundColor: 'rgba(128, 128, 128, 0.4)',
                 alignItems: 'center',
                 justifyContent: 'center',
+                borderRadius: 20,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
@@ -85,6 +86,18 @@ const HistoryScreen = ({navigation}) => {
                   <TouchableOpacity
                     style={{marginBottom: 10}}
                     onPress={() => {
+                      navigation.navigate('GamesScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
+                      Games
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{marginBottom: 10}}
+                    onPress={() => {
                       navigation.navigate('ProfileScreen');
                       setSideBarIsVisible(false);
                     }}>
@@ -108,18 +121,6 @@ const HistoryScreen = ({navigation}) => {
                     <Text
                       style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
                       History
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{marginBottom: 10}}
-                    onPress={() => {
-                      navigation.navigate('GamesScreen');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
-                      Games
                     </Text>
                   </TouchableOpacity>
                 </View>

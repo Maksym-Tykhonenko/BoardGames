@@ -15,10 +15,12 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {uid} from 'uid';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
-const GamesScreen = ({navigation}) => {
+const NewTipeOfGame = ({navigation, route}) => {
+  console.log('route', route.params.titel);
   const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [inputText, setInputText] = useState('');
+  const [discriptionText, setDiscriptionText] = useState('');
   const [selectPhoto, setSelectPhoto] = useState(null);
   const [newTipes, setNewTipes] = useState([]);
   console.log('newTipes==>', newTipes);
@@ -44,23 +46,23 @@ const GamesScreen = ({navigation}) => {
   const handleAddTipesOfTheGame = () => {
     let newType = {
       titel: inputText,
+      discription: discriptionText,
       photo: selectPhoto,
     };
 
     setNewTipes([...newTipes, newType]);
 
     setInputText('');
+    setDiscriptionText('');
     setSelectPhoto(null);
     setModalIsVisible(!modalIsVisible);
   };
-
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgr1.jpeg')}
-        style={{flex: 1}}>
-        <SafeAreaView
-          style={{flex: 1, marginHorizontal: 10, position: 'relative'}}>
+        style={{flex: 1}}
+        source={require('../assets/bgr1.jpeg')}>
+        <SafeAreaView style={{flex: 1, marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             {/**SIDEBAR BTN open */}
             <TouchableOpacity
@@ -101,230 +103,38 @@ const GamesScreen = ({navigation}) => {
             </TouchableOpacity>
           </View>
 
-          <View>
-            <View style={{alignItems: 'center'}}>
-              {/**Title */}
-              <Text style={{fontSize: 30, fontWeight: 'bold', color: 'gold'}}>
-                TIPES OF GAMES:{' '}
-              </Text>
+          <Text style={{color: 'gold', fontSize: 30, fontWeight: 'bold'}}>
+            {route.params.titel}
+          </Text>
 
-              {/**Tipe of games Btn block */}
-              <ScrollView>
-                <View>
-                  {newTipes.map(tipe => {
-                    return (
-                      <TouchableOpacity
-                        key={uid()}
-                        onPress={() => {
-                          navigation.navigate('NewTipeOfGame', {
-                            titel: tipe.titel,
-                          });
-                        }}
-                        style={{
-                          position: 'relative',
-                          alignItems: 'center',
-                          marginBottom: 15,
-                          borderWidth: 3,
-                          borderColor: 'gold',
-                          //borderStyle: 'dashed',
-                          borderTopRightRadius: 30,
-                          borderTopLeftRadius: 30,
-                        }}>
-                        <Image
-                          source={{uri: tipe.photo}}
-                          style={{
-                            width: 350,
-                            height: 250,
-                            borderTopRightRadius: 30,
-                            borderTopLeftRadius: 30,
-                          }}
-                        />
-                        <View style={{alignItems: 'center'}}>
-                          <Text
-                            style={{
-                              position: 'absolute',
-                              bottom: 0,
-                              width: 'auto',
-                              fontSize: 25,
-                              backgroundColor: 'rgba(128, 128, 128, 0.6)',
-                              width: '100%',
-                              paddingLeft: 30,
-                              color: 'gold',
-                            }}>
-                            {tipe.titel}
-                          </Text>
-                        </View>
-                      </TouchableOpacity>
-                    );
-                  })}
-
-                  {/**BTN 1 */}
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate('ByNatureGameScreen');
-                    }}
-                    style={{
-                      position: 'relative',
-                      alignItems: 'center',
-                      marginBottom: 15,
-                      borderWidth: 3,
-                      borderColor: 'gold',
-                      //borderStyle: 'dashed',
-                      borderTopRightRadius: 30,
-                      borderTopLeftRadius: 30,
-                    }}>
-                    <Image
-                      source={require('../assets/natureOfGame.jpeg')}
-                      style={{
-                        width: 350,
-                        height: 250,
-                        borderTopRightRadius: 30,
-                        borderTopLeftRadius: 30,
-                      }}
-                    />
-                    <View style={{alignItems: 'center'}}>
-                      <Text
-                        style={{
-                          position: 'absolute',
-                          bottom: 0,
-                          width: 'auto',
-                          fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
-                          width: '100%',
-                          paddingLeft: 30,
-                          color: 'gold',
-                        }}>
-                        By the nature of the game
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  {/**BTN 2 */}
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate('ByNumberPlayersScreen');
-                    }}
-                    style={{
-                      position: 'relative',
-                      alignItems: 'center',
-                      marginBottom: 15,
-                      borderTopRightRadius: 30,
-                      borderTopLeftRadius: 30,
-                      borderWidth: 3,
-                      borderColor: 'gold',
-                    }}>
-                    <Image
-                      source={require('../assets/nastolnye-igry-dlya-kompanii.jpeg')}
-                      style={{
-                        width: 350,
-                        height: 250,
-                        borderTopRightRadius: 30,
-                        borderTopLeftRadius: 30,
-                      }}
-                    />
-                    <View style={{alignItems: 'center'}}>
-                      <Text
-                        style={{
-                          position: 'absolute',
-                          bottom: 0,
-                          width: 'auto',
-                          fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
-                          width: '100%',
-                          paddingLeft: 30,
-                          color: 'gold',
-                        }}>
-                        By the number of players
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  {/**BTN 3 */}
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate('ByMehanicsGameScreen');
-                    }}
-                    style={{
-                      position: 'relative',
-                      alignItems: 'center',
-                      marginBottom: 15,
-                      borderTopRightRadius: 30,
-                      borderTopLeftRadius: 30,
-                      borderWidth: 3,
-                      borderColor: 'gold',
-                    }}>
-                    <Image
-                      source={require('../assets/bgr.jpeg')}
-                      style={{
-                        width: 350,
-                        height: 250,
-                        borderTopRightRadius: 30,
-                        borderTopLeftRadius: 30,
-                      }}
-                    />
-                    <View style={{alignItems: 'center'}}>
-                      <Text
-                        style={{
-                          position: 'absolute',
-                          bottom: 0,
-                          width: 'auto',
-                          fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
-                          width: '100%',
-                          paddingLeft: 30,
-                          color: 'gold',
-                        }}>
-                        By the mechanics of the game
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  {/**BTN 4 */}
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate('ByCooperationsScreen');
-                    }}
-                    style={{
-                      position: 'relative',
-                      alignItems: 'center',
-                      marginBottom: 15,
-                      borderWidth: 3,
-                      borderColor: 'gold',
-                      //borderStyle: 'dashed',
-                      borderTopRightRadius: 30,
-                      borderTopLeftRadius: 30,
-                    }}>
-                    <Image
-                      source={require('../assets/degreeOfCoop.jpeg')}
-                      style={{
-                        width: 350,
-                        height: 250,
-                        borderTopRightRadius: 30,
-                        borderTopLeftRadius: 30,
-                      }}
-                    />
-                    <View style={{alignItems: 'center'}}>
-                      <Text
-                        style={{
-                          position: 'absolute',
-                          bottom: 0,
-                          width: 'auto',
-                          fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
-                          width: '100%',
-                          paddingLeft: 30,
-                          color: 'gold',
-                        }}>
-                        By the degree of cooperation players
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <View style={{height: 150}}></View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {newTipes.map(tipe => {
+              return (
+                <View
+                  key={uid()}
+                  style={{
+                    backgroundColor: 'rgba(128, 128, 128, 0.4)',
+                    width: '100%',
+                    marginBottom: 10,
+                    borderRadius: 20,
+                  }}>
+                  <Image
+                    source={{uri: tipe.photo}}
+                    style={{width: '100%', height: 200, borderRadius: 20}}
+                  />
+                  <View style={{alignItems: 'center'}}>
+                    <Text
+                      style={{color: 'gold', fontSize: 25, fontWeight: 'bold'}}>
+                      {tipe.titel}
+                    </Text>
+                    <Text style={{color: 'gold', fontSize: 18}}>
+                      Discription: {tipe.discription}
+                    </Text>
+                  </View>
                 </View>
-              </ScrollView>
-            </View>
-          </View>
+              );
+            })}
+          </ScrollView>
 
           {/**BTN Back */}
           <TouchableOpacity
@@ -455,6 +265,7 @@ const GamesScreen = ({navigation}) => {
                 onPress={() => {
                   setModalIsVisible(!modalIsVisible);
                   setInputText('');
+                  setDiscriptionText('');
                 }}
                 style={{
                   alignItems: 'flex-end',
@@ -474,6 +285,27 @@ const GamesScreen = ({navigation}) => {
 
               <View style={{alignItems: 'center'}}>
                 <TextInput
+                  placeholder="Enter type name..."
+                  placeholderTextColor="rgba(255, 215, 0, 100)"
+                  //multiline={true}
+                  style={{
+                    color: 'gold',
+                    width: '80%',
+                    height: 60,
+                    borderColor: 'gold',
+                    borderWidth: 3,
+                    padding: 10,
+                    borderRadius: 15,
+                    marginTop: 20,
+                    fontSize: 20,
+                  }}
+                  onChangeText={setInputText}
+                  value={inputText}
+                />
+
+                <TextInput
+                  placeholder="Discription..."
+                  placeholderTextColor="rgba(255, 215, 0, 100)"
                   multiline={true}
                   style={{
                     color: 'gold',
@@ -481,13 +313,13 @@ const GamesScreen = ({navigation}) => {
                     height: 120,
                     borderColor: 'gold',
                     borderWidth: 3,
-                    padding: 8,
+                    padding: 10,
                     borderRadius: 15,
                     marginTop: 20,
                     fontSize: 20,
                   }}
-                  onChangeText={setInputText}
-                  value={inputText}
+                  onChangeText={setDiscriptionText}
+                  value={discriptionText}
                 />
 
                 {/**BTN add photo or Img*/}
@@ -498,7 +330,7 @@ const GamesScreen = ({navigation}) => {
                   }}
                   style={{
                     color: 'gold',
-                    width: 150,
+                    width: '80%',
                     height: 60,
                     borderColor: 'gold',
                     borderWidth: 3,
@@ -510,7 +342,7 @@ const GamesScreen = ({navigation}) => {
                   }}>
                   <Text
                     style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
-                    PHOTO
+                    ADD PHOTO
                   </Text>
                 </TouchableOpacity>
 
@@ -544,4 +376,4 @@ const GamesScreen = ({navigation}) => {
   );
 };
 
-export default GamesScreen;
+export default NewTipeOfGame;

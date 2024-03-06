@@ -15,7 +15,7 @@ const ProfileScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/imgonline-com-ua-Resize-sTuE6CAxqAd.jpg')}
+        source={require('../assets/bgr1.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 10}}>
           {/**SIDEBAR BTN */}
@@ -27,6 +27,7 @@ const ProfileScreen = ({navigation}) => {
                 backgroundColor: 'rgba(128, 128, 128, 0.4)',
                 alignItems: 'center',
                 justifyContent: 'center',
+                borderRadius: 20,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
@@ -81,6 +82,18 @@ const ProfileScreen = ({navigation}) => {
                   </TouchableOpacity>
 
                   <TouchableOpacity
+                    style={{marginBottom: 10}}
+                    onPress={() => {
+                      navigation.navigate('GamesScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
+                      Games
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
                     style={{
                       marginBottom: 10,
                       borderBottomWidth: 1,
@@ -106,18 +119,6 @@ const ProfileScreen = ({navigation}) => {
                     <Text
                       style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
                       History
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{marginBottom: 10}}
-                    onPress={() => {
-                      navigation.navigate('GamesScreen');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
-                      Games
                     </Text>
                   </TouchableOpacity>
                 </View>

@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   Modal,
+  ScrollView,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -14,7 +15,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/imgonline-com-ua-Resize-sTuE6CAxqAd.jpg')}
+        source={require('../assets/bgr1.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 10}}>
           {/**SIDEBAR BTN */}
@@ -26,17 +27,61 @@ const HomeScreen = ({navigation}) => {
                 backgroundColor: 'rgba(128, 128, 128, 0.4)',
                 alignItems: 'center',
                 justifyContent: 'center',
+                borderRadius: 20,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
               }}>
-              <AntDesign name="menu-fold" style={{fontSize: 40}} />
+              <AntDesign
+                name="menu-fold"
+                style={{fontSize: 40, color: 'gold'}}
+              />
             </TouchableOpacity>
           </View>
 
-          {/**TEXT */}
+          {/**Content */}
           <View>
-            <Text style={{fontSize: 25}}>HELLO IT`S APP ABOUT ....</Text>
+            <Text style={{fontSize: 25, color: 'gold'}}>
+              HELLO IT`S APP ABOUT ....
+            </Text>
+
+            <ScrollView>
+              <View
+                style={{
+                  backgroundColor: 'rgba(128, 128, 128, 0.5)',
+                  //borderWidth: 3,
+                  //borderStyle: 'dashed',
+                  borderColor: 'gold',
+                  borderRadius: 20,
+                  padding: 10,
+                }}>
+                <Text style={{fontSize: 20, color: 'gold'}}>
+                  A board game is a game that can be played on a table or other
+                  relatively flat surface. The game takes place with the
+                  participation of a relatively small number of objects that can
+                  fit in the hands of the players or on the table. However, this
+                  concept is quite conditional, because not all games can be
+                  placed on a regular table and not every game requires it.
+                  Board games can be classified according to their mechanics and
+                  required tools A board game is a game that can be played on a
+                  table or other relatively flat surface. The game takes place
+                  with the participation of a relatively small number of objects
+                  that can fit in the hands of the players or on the table.
+                  However, this concept is quite conditional, because not all
+                  games can be placed on a regular table and not every game
+                  requires it. Board games can be classified according to their
+                  mechanics and required tools A board game is a game that can
+                  be played on a table or other relatively flat surface. The
+                  game takes place with the participation of a relatively small
+                  number of objects that can fit in the hands of the players or
+                  on the table. However, this concept is quite conditional,
+                  because not all games can be placed on a regular table and not
+                  every game requires it. Board games can be classified
+                  according to their mechanics and required tools
+                </Text>
+              </View>
+              <View style={{height: 100}}></View>
+            </ScrollView>
           </View>
 
           {/**SIDEBAR */}
@@ -46,11 +91,11 @@ const HomeScreen = ({navigation}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#01aade',
+                backgroundColor: '#000',
                 flex: 1,
                 marginRight: '30%',
-                borderRightColor: '#fff',
-                borderWidth: 1,
+                borderRightColor: 'gold',
+                borderWidth: 3,
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
               }}>
@@ -63,7 +108,7 @@ const HomeScreen = ({navigation}) => {
                   }}
                   style={{marginBottom: 10}}>
                   <Text
-                    style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
+                    style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -74,7 +119,7 @@ const HomeScreen = ({navigation}) => {
                     style={{
                       marginBottom: 10,
                       borderBottomWidth: 1,
-                      borderColor: '#fff',
+                      borderColor: 'gold',
                       width: 140,
                     }}
                     onPress={() => {
@@ -82,8 +127,20 @@ const HomeScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
                       Home
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{marginBottom: 10}}
+                    onPress={() => {
+                      navigation.navigate('GamesScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      Games
                     </Text>
                   </TouchableOpacity>
 
@@ -94,7 +151,7 @@ const HomeScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
                       Profile
                     </Text>
                   </TouchableOpacity>
@@ -106,20 +163,8 @@ const HomeScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
                       History
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{marginBottom: 10}}
-                    onPress={() => {
-                      navigation.navigate('GamesScreen');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: '#fff', fontSize: 40, fontWeight: 'bold'}}>
-                      Games
                     </Text>
                   </TouchableOpacity>
                 </View>
