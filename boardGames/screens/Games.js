@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -14,6 +14,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {uid} from 'uid';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const GamesScreen = ({navigation}) => {
   const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
@@ -23,6 +24,41 @@ const GamesScreen = ({navigation}) => {
   const [newTipes, setNewTipes] = useState([]);
   console.log('newTipes==>', newTipes);
   console.log('selectPhoto==>', selectPhoto);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [newTipes]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        newTipes,
+      };
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(`GamesScreen`, jsonData);
+      console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`GamesScreen`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        console.log('parsedData==>', parsedData);
+        setNewTipes(parsedData.newTipes);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  /////////////////////////
 
   const ImagePicer = () => {
     let options = {
@@ -57,7 +93,7 @@ const GamesScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgr1.jpeg')}
+        source={require('../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{flex: 1, marginHorizontal: 10, position: 'relative'}}>
@@ -71,13 +107,17 @@ const GamesScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
               }}>
               <AntDesign
                 name="menu-fold"
-                style={{fontSize: 40, color: 'gold'}}
+                style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
 
@@ -90,13 +130,17 @@ const GamesScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
               }}
               onPress={() => {
                 setModalIsVisible(true);
               }}>
               <Entypo
                 name="add-to-list"
-                style={{fontSize: 40, color: 'gold'}}
+                style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
           </View>
@@ -104,7 +148,8 @@ const GamesScreen = ({navigation}) => {
           <View>
             <View style={{alignItems: 'center'}}>
               {/**Title */}
-              <Text style={{fontSize: 30, fontWeight: 'bold', color: 'gold'}}>
+              <Text
+                style={{fontSize: 30, fontWeight: 'bold', color: '#fdcf55'}}>
                 TIPES OF GAMES:{' '}
               </Text>
 
@@ -125,10 +170,14 @@ const GamesScreen = ({navigation}) => {
                           alignItems: 'center',
                           marginBottom: 15,
                           borderWidth: 3,
-                          borderColor: 'gold',
+                          borderColor: '#fdcf55',
                           //borderStyle: 'dashed',
                           borderTopRightRadius: 30,
                           borderTopLeftRadius: 30,
+                          shadowColor: '#fdcf55',
+                          shadowOffset: {width: 0, height: 3},
+                          shadowOpacity: 0.9,
+                          shadowRadius: 10,
                         }}>
                         <Image
                           source={{uri: tipe.photo}}
@@ -149,7 +198,7 @@ const GamesScreen = ({navigation}) => {
                               backgroundColor: 'rgba(128, 128, 128, 0.6)',
                               width: '100%',
                               paddingLeft: 30,
-                              color: 'gold',
+                              color: '#fdcf55',
                             }}>
                             {tipe.titel}
                           </Text>
@@ -168,10 +217,14 @@ const GamesScreen = ({navigation}) => {
                       alignItems: 'center',
                       marginBottom: 15,
                       borderWidth: 3,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       //borderStyle: 'dashed',
                       borderTopRightRadius: 30,
                       borderTopLeftRadius: 30,
+                      shadowColor: '#fdcf55',
+                      shadowOffset: {width: 0, height: 3},
+                      shadowOpacity: 0.9,
+                      shadowRadius: 10,
                     }}>
                     <Image
                       source={require('../assets/natureOfGame.jpeg')}
@@ -192,7 +245,7 @@ const GamesScreen = ({navigation}) => {
                           backgroundColor: 'rgba(128, 128, 128, 0.6)',
                           width: '100%',
                           paddingLeft: 30,
-                          color: 'gold',
+                          color: '#fdcf55',
                         }}>
                         By the nature of the game
                       </Text>
@@ -211,7 +264,11 @@ const GamesScreen = ({navigation}) => {
                       borderTopRightRadius: 30,
                       borderTopLeftRadius: 30,
                       borderWidth: 3,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
+                      shadowColor: '#fdcf55',
+                      shadowOffset: {width: 0, height: 3},
+                      shadowOpacity: 0.9,
+                      shadowRadius: 10,
                     }}>
                     <Image
                       source={require('../assets/nastolnye-igry-dlya-kompanii.jpeg')}
@@ -232,7 +289,7 @@ const GamesScreen = ({navigation}) => {
                           backgroundColor: 'rgba(128, 128, 128, 0.6)',
                           width: '100%',
                           paddingLeft: 30,
-                          color: 'gold',
+                          color: '#fdcf55',
                         }}>
                         By the number of players
                       </Text>
@@ -251,7 +308,11 @@ const GamesScreen = ({navigation}) => {
                       borderTopRightRadius: 30,
                       borderTopLeftRadius: 30,
                       borderWidth: 3,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
+                      shadowColor: '#fdcf55',
+                      shadowOffset: {width: 0, height: 3},
+                      shadowOpacity: 0.9,
+                      shadowRadius: 10,
                     }}>
                     <Image
                       source={require('../assets/bgr.jpeg')}
@@ -272,7 +333,7 @@ const GamesScreen = ({navigation}) => {
                           backgroundColor: 'rgba(128, 128, 128, 0.6)',
                           width: '100%',
                           paddingLeft: 30,
-                          color: 'gold',
+                          color: '#fdcf55',
                         }}>
                         By the mechanics of the game
                       </Text>
@@ -289,10 +350,14 @@ const GamesScreen = ({navigation}) => {
                       alignItems: 'center',
                       marginBottom: 15,
                       borderWidth: 3,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       //borderStyle: 'dashed',
                       borderTopRightRadius: 30,
                       borderTopLeftRadius: 30,
+                      shadowColor: '#fdcf55',
+                      shadowOffset: {width: 0, height: 3},
+                      shadowOpacity: 0.9,
+                      shadowRadius: 10,
                     }}>
                     <Image
                       source={require('../assets/degreeOfCoop.jpeg')}
@@ -313,7 +378,7 @@ const GamesScreen = ({navigation}) => {
                           backgroundColor: 'rgba(128, 128, 128, 0.6)',
                           width: '100%',
                           paddingLeft: 30,
-                          color: 'gold',
+                          color: '#fdcf55',
                         }}>
                         By the degree of cooperation players
                       </Text>
@@ -338,11 +403,15 @@ const GamesScreen = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              shadowColor: '#fdcf55',
+              shadowOffset: {width: 0, height: 3},
+              shadowOpacity: 0.9,
+              shadowRadius: 10,
             }}
             onPress={() => {
               navigation.goBack();
             }}>
-            <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
           </TouchableOpacity>
 
           {/**SIDEBAR */}
@@ -355,7 +424,7 @@ const GamesScreen = ({navigation}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginRight: '30%',
-                borderRightColor: 'gold',
+                borderRightColor: '#fdcf55',
                 borderWidth: 3,
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
@@ -369,7 +438,11 @@ const GamesScreen = ({navigation}) => {
                   }}
                   style={{marginBottom: 10}}>
                   <Text
-                    style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -379,22 +452,8 @@ const GamesScreen = ({navigation}) => {
                   <TouchableOpacity
                     style={{
                       marginBottom: 10,
-                    }}
-                    onPress={() => {
-                      navigation.navigate('Home');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
-                      Home
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{
-                      marginBottom: 10,
                       borderBottomWidth: 1,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       width: 140,
                     }}
                     onPress={() => {
@@ -402,7 +461,11 @@ const GamesScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Games
                     </Text>
                   </TouchableOpacity>
@@ -414,7 +477,11 @@ const GamesScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Profile
                     </Text>
                   </TouchableOpacity>
@@ -428,8 +495,30 @@ const GamesScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -447,7 +536,7 @@ const GamesScreen = ({navigation}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginTop: '30%',
-                borderColor: 'gold',
+                borderColor: '#fdcf55',
                 borderWidth: 3,
                 borderRadius: 40,
               }}>
@@ -461,13 +550,15 @@ const GamesScreen = ({navigation}) => {
                   marginRight: 20,
                   marginTop: 10,
                 }}>
-                <Text style={{color: 'gold', fontSize: 35, fontWeight: 'bold'}}>
+                <Text
+                  style={{color: '#fdcf55', fontSize: 35, fontWeight: 'bold'}}>
                   X
                 </Text>
               </TouchableOpacity>
 
               <View style={{alignItems: 'center'}}>
-                <Text style={{color: 'gold', fontSize: 25, fontWeight: 'bold'}}>
+                <Text
+                  style={{color: '#fdcf55', fontSize: 25, fontWeight: 'bold'}}>
                   Add game types:
                 </Text>
               </View>
@@ -476,10 +567,10 @@ const GamesScreen = ({navigation}) => {
                 <TextInput
                   multiline={true}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: '80%',
                     height: 120,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 8,
                     borderRadius: 15,
@@ -497,10 +588,10 @@ const GamesScreen = ({navigation}) => {
                     ImagePicer();
                   }}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: 150,
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 5,
                     borderRadius: 15,
@@ -509,7 +600,11 @@ const GamesScreen = ({navigation}) => {
                     marginTop: 20,
                   }}>
                   <Text
-                    style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontWeight: 'bold',
+                      fontSize: 25,
+                    }}>
                     PHOTO
                   </Text>
                 </TouchableOpacity>
@@ -519,10 +614,10 @@ const GamesScreen = ({navigation}) => {
                     handleAddTipesOfTheGame();
                   }}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: 150,
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 5,
                     borderRadius: 15,
@@ -531,7 +626,11 @@ const GamesScreen = ({navigation}) => {
                     marginTop: 20,
                   }}>
                   <Text
-                    style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontWeight: 'bold',
+                      fontSize: 25,
+                    }}>
                     ADD
                   </Text>
                 </TouchableOpacity>

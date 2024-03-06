@@ -15,13 +15,13 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {uid} from 'uid';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
-const OneIntGame = ({navigation, route}) => {
+const NewGame = ({navigation, route}) => {
   const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
   console.log('route', route.params.game);
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/bgrN2.jpeg')}
+        source={require('../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
@@ -67,7 +67,7 @@ const OneIntGame = ({navigation, route}) => {
               </View>
 
               <Image
-                source={route.params.game.logo}
+                source={{uri: route.params.game.logo}}
                 style={{width: '100%', height: 250}}
               />
 
@@ -78,7 +78,6 @@ const OneIntGame = ({navigation, route}) => {
             </ScrollView>
           </View>
         </SafeAreaView>
-
         {/**BTN Back */}
         <TouchableOpacity
           style={{
@@ -106,4 +105,4 @@ const OneIntGame = ({navigation, route}) => {
   );
 };
 
-export default OneIntGame;
+export default NewGame;

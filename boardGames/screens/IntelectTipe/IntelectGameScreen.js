@@ -14,18 +14,62 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {uid} from 'uid';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const IntelectGameScreen = ({navigation, route}) => {
   console.log('params', route.params.title);
   const [exampleGames, setExampleGames] = useState(route.params.exampleGames);
-  console.log('exampleGames', exampleGames);
+  //console.log('exampleGames', exampleGames);
   const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [inputText, setInputText] = useState('');
+  const [inputDescription, setInputDescription] = useState('');
   const [selectPhoto, setSelectPhoto] = useState(null);
   const [newTipes, setNewTipes] = useState([]);
   console.log('newTipes==>', newTipes);
   console.log('selectPhoto==>', selectPhoto);
+  const title = route.params.titel;
+  console.log('title', title);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [newTipes]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        newTipes,
+      };
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(
+        `IntelectGameScreen${route.params.title}`,
+        jsonData,
+      );
+      console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(
+        `IntelectGameScreen${route.params.title}`,
+      );
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        console.log('parsedData==>', parsedData);
+        setNewTipes(parsedData.newTipes);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  /////////////////////////
 
   const ImagePicer = () => {
     let options = {
@@ -46,12 +90,14 @@ const IntelectGameScreen = ({navigation, route}) => {
 
   const handleAddTipesOfTheGame = () => {
     let newType = {
-      titel: inputText,
-      photo: selectPhoto,
+      name: inputText,
+      logo: selectPhoto,
+      discreption: inputDescription,
     };
 
     setNewTipes([...newTipes, newType]);
 
+    setInputDescription('');
     setInputText('');
     setSelectPhoto(null);
     setModalIsVisible(!modalIsVisible);
@@ -61,56 +107,62 @@ const IntelectGameScreen = ({navigation, route}) => {
     <View style={{flex: 1}}>
       <ImageBackground
         style={{flex: 1}}
-        source={require('../../assets/bgr1.jpeg')}>
+        source={require('../../assets/bgrN2.jpeg')}>
         <SafeAreaView style={{marginHorizontal: 20}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            {/**SIDEBAR BTN open */}
+            <TouchableOpacity
+              style={{
+                width: 60,
+                height: 60,
+                backgroundColor: 'rgba(128, 128, 128, 0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
+              }}
+              onPress={() => {
+                setSideBarIsVisible(true);
+              }}>
+              <AntDesign
+                name="menu-fold"
+                style={{fontSize: 40, color: '#fdcf55'}}
+              />
+            </TouchableOpacity>
+
+            {/**add tipes BTN */}
+            <TouchableOpacity
+              style={{
+                width: 60,
+                height: 60,
+                backgroundColor: 'rgba(128, 128, 128, 0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
+              }}
+              onPress={() => {
+                setModalIsVisible(true);
+              }}>
+              <Entypo
+                name="add-to-list"
+                style={{fontSize: 40, color: '#fdcf55'}}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{alignItems: 'center'}}>
+            <Text style={{color: '#fdcf55', fontWeight: 'bold', fontSize: 25}}>
+              {route.params.title}:
+            </Text>
+          </View>
           <ScrollView showsVerticalScrollIndicator={false}>
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              {/**SIDEBAR BTN open */}
-              <TouchableOpacity
-                style={{
-                  width: 60,
-                  height: 60,
-                  backgroundColor: 'rgba(128, 128, 128, 0.4)',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 20,
-                }}
-                onPress={() => {
-                  setSideBarIsVisible(true);
-                }}>
-                <AntDesign
-                  name="menu-fold"
-                  style={{fontSize: 40, color: 'gold'}}
-                />
-              </TouchableOpacity>
-
-              {/**add tipes BTN */}
-              <TouchableOpacity
-                style={{
-                  width: 60,
-                  height: 60,
-                  backgroundColor: 'rgba(128, 128, 128, 0.4)',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 20,
-                }}
-                onPress={() => {
-                  setModalIsVisible(true);
-                }}>
-                <Entypo
-                  name="add-to-list"
-                  style={{fontSize: 40, color: 'gold'}}
-                />
-              </TouchableOpacity>
-            </View>
-
-            <View style={{alignItems: 'center'}}>
-              <Text style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
-                {route.params.title}:
-              </Text>
-            </View>
-
             {exampleGames.map(i => {
               return (
                 <TouchableOpacity
@@ -124,8 +176,12 @@ const IntelectGameScreen = ({navigation, route}) => {
                     borderTopRightRadius: 30,
                     borderTopLeftRadius: 30,
                     borderWidth: 3,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     //width: 340,
+                    shadowColor: '#fdcf55',
+                    shadowOffset: {width: 0, height: 3},
+                    shadowOpacity: 0.9,
+                    shadowRadius: 10,
                   }}
                   key={uid()}>
                   <Image
@@ -147,7 +203,7 @@ const IntelectGameScreen = ({navigation, route}) => {
                         backgroundColor: 'rgba(128, 128, 128, 0.6)',
                         width: '100%',
                         paddingLeft: 30,
-                        color: 'gold',
+                        color: '#fdcf55',
                       }}>
                       {i.name}
                     </Text>
@@ -155,8 +211,58 @@ const IntelectGameScreen = ({navigation, route}) => {
                 </TouchableOpacity>
               );
             })}
-          </ScrollView>
 
+            {newTipes.map(i => {
+              return (
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('NewGame', {game: i});
+                  }}
+                  style={{
+                    position: 'relative',
+                    alignItems: 'center',
+                    marginBottom: 15,
+                    borderTopRightRadius: 30,
+                    borderTopLeftRadius: 30,
+                    borderWidth: 3,
+                    borderColor: '#fdcf55',
+                    //width: 340,
+                    shadowColor: '#fdcf55',
+                    shadowOffset: {width: 0, height: 3},
+                    shadowOpacity: 0.9,
+                    shadowRadius: 10,
+                  }}
+                  key={uid()}>
+                  <Image
+                    source={{uri: i.logo}}
+                    style={{
+                      width: '100%',
+                      height: 250,
+                      borderTopRightRadius: 30,
+                      borderTopLeftRadius: 30,
+                    }}
+                  />
+                  <View style={{alignItems: 'center'}}>
+                    <Text
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        width: 'auto',
+                        fontSize: 25,
+                        backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                        width: '100%',
+                        paddingLeft: 30,
+                        color: '#fdcf55',
+                      }}>
+                      {i.name}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+
+            <View style={{height: 150}}></View>
+          </ScrollView>
           {/**SIDEBAR */}
           <Modal
             animationType="fade"
@@ -167,7 +273,7 @@ const IntelectGameScreen = ({navigation, route}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginRight: '30%',
-                borderRightColor: 'gold',
+                borderRightColor: '#fdcf55',
                 borderWidth: 3,
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
@@ -181,7 +287,11 @@ const IntelectGameScreen = ({navigation, route}) => {
                   }}
                   style={{marginBottom: 10}}>
                   <Text
-                    style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -191,22 +301,8 @@ const IntelectGameScreen = ({navigation, route}) => {
                   <TouchableOpacity
                     style={{
                       marginBottom: 10,
-                    }}
-                    onPress={() => {
-                      navigation.navigate('Home');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
-                      Home
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{
-                      marginBottom: 10,
                       borderBottomWidth: 1,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       width: 140,
                     }}
                     onPress={() => {
@@ -214,7 +310,11 @@ const IntelectGameScreen = ({navigation, route}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Games
                     </Text>
                   </TouchableOpacity>
@@ -226,7 +326,11 @@ const IntelectGameScreen = ({navigation, route}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Profile
                     </Text>
                   </TouchableOpacity>
@@ -240,8 +344,30 @@ const IntelectGameScreen = ({navigation, route}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -259,7 +385,7 @@ const IntelectGameScreen = ({navigation, route}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginTop: '30%',
-                borderColor: 'gold',
+                borderColor: '#fdcf55',
                 borderWidth: 3,
                 borderRadius: 40,
               }}>
@@ -267,31 +393,36 @@ const IntelectGameScreen = ({navigation, route}) => {
                 onPress={() => {
                   setModalIsVisible(!modalIsVisible);
                   setInputText('');
+                  setInputDescription('');
                 }}
                 style={{
                   alignItems: 'flex-end',
                   marginRight: 20,
                   marginTop: 10,
                 }}>
-                <Text style={{color: 'gold', fontSize: 35, fontWeight: 'bold'}}>
+                <Text
+                  style={{color: '#fdcf55', fontSize: 35, fontWeight: 'bold'}}>
                   X
                 </Text>
               </TouchableOpacity>
 
               <View style={{alignItems: 'center'}}>
-                <Text style={{color: 'gold', fontSize: 25, fontWeight: 'bold'}}>
+                <Text
+                  style={{color: '#fdcf55', fontSize: 25, fontWeight: 'bold'}}>
                   Add game types:
                 </Text>
               </View>
 
               <View style={{alignItems: 'center'}}>
                 <TextInput
-                  multiline={true}
+                  placeholder="name of the game..."
+                  placeholderTextColor={'#fdcf55'}
+                  //multiline={true}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: '80%',
-                    height: 120,
-                    borderColor: 'gold',
+                    height: 60,
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 8,
                     borderRadius: 15,
@@ -302,6 +433,25 @@ const IntelectGameScreen = ({navigation, route}) => {
                   value={inputText}
                 />
 
+                <TextInput
+                  multiline={true}
+                  placeholder="description..."
+                  placeholderTextColor={'#fdcf55'}
+                  style={{
+                    color: '#fdcf55',
+                    width: '80%',
+                    height: 120,
+                    borderColor: '#fdcf55',
+                    borderWidth: 3,
+                    padding: 8,
+                    borderRadius: 15,
+                    marginTop: 20,
+                    fontSize: 20,
+                  }}
+                  onChangeText={setInputDescription}
+                  value={inputDescription}
+                />
+
                 {/**BTN add photo or Img*/}
 
                 <TouchableOpacity
@@ -309,10 +459,10 @@ const IntelectGameScreen = ({navigation, route}) => {
                     ImagePicer();
                   }}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: 150,
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 5,
                     borderRadius: 15,
@@ -321,7 +471,11 @@ const IntelectGameScreen = ({navigation, route}) => {
                     marginTop: 20,
                   }}>
                   <Text
-                    style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontWeight: 'bold',
+                      fontSize: 25,
+                    }}>
                     PHOTO
                   </Text>
                 </TouchableOpacity>
@@ -331,10 +485,10 @@ const IntelectGameScreen = ({navigation, route}) => {
                     handleAddTipesOfTheGame();
                   }}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: 150,
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 5,
                     borderRadius: 15,
@@ -343,7 +497,11 @@ const IntelectGameScreen = ({navigation, route}) => {
                     marginTop: 20,
                   }}>
                   <Text
-                    style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontWeight: 'bold',
+                      fontSize: 25,
+                    }}>
                     ADD
                   </Text>
                 </TouchableOpacity>
@@ -364,11 +522,15 @@ const IntelectGameScreen = ({navigation, route}) => {
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 20,
+            shadowColor: '#fdcf55',
+            shadowOffset: {width: 0, height: 3},
+            shadowOpacity: 0.9,
+            shadowRadius: 10,
           }}
           onPress={() => {
             navigation.goBack();
           }}>
-          <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+          <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
         </TouchableOpacity>
       </ImageBackground>
     </View>

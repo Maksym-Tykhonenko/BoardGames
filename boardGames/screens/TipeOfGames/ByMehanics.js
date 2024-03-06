@@ -7,9 +7,11 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Modal,
 } from 'react-native';
 import {uid} from 'uid';
 import Entypo from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const tipes = [
   {
@@ -244,20 +246,45 @@ Risk has been a favorite among strategy game enthusiasts since its introduction 
 
 const ByMehanicsGameScreen = ({navigation}) => {
   const [games, setGames] = useState(tipes);
+  const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
   console.log(games);
 
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/bgr1.jpeg')}
+        source={require('../../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
             flex: 1,
             marginHorizontal: 10,
           }}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            {/**SIDEBAR BTN open */}
+            <TouchableOpacity
+              style={{
+                width: 60,
+                height: 60,
+                backgroundColor: 'rgba(128, 128, 128, 0.4)',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
+              }}
+              onPress={() => {
+                setSideBarIsVisible(true);
+              }}>
+              <AntDesign
+                name="menu-fold"
+                style={{fontSize: 40, color: '#fdcf55'}}
+              />
+            </TouchableOpacity>
+          </View>
           <View style={{alignItems: 'center'}}>
-            <Text style={{color: 'gold', fontSize: 25}}>
+            <Text style={{color: '#fdcf55', fontSize: 25}}>
               By the mechanics of the game :
             </Text>
           </View>
@@ -280,12 +307,16 @@ const ByMehanicsGameScreen = ({navigation}) => {
                     borderTopRightRadius: 30,
                     borderTopLeftRadius: 30,
                     borderWidth: 3,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
+                    shadowColor: '#fdcf55',
+                    shadowOffset: {width: 0, height: 3},
+                    shadowOpacity: 0.9,
+                    shadowRadius: 10,
                   }}>
                   <Image
                     source={i.photo}
                     style={{
-                      width: 350,
+                      width: '100%',
                       height: 250,
                       borderTopRightRadius: 30,
                       borderTopLeftRadius: 30,
@@ -301,7 +332,7 @@ const ByMehanicsGameScreen = ({navigation}) => {
                         backgroundColor: 'rgba(128, 128, 128, 0.6)',
                         width: '100%',
                         paddingLeft: 30,
-                        color: 'gold',
+                        color: '#fdcf55',
                       }}>
                       {i.title}
                     </Text>
@@ -323,12 +354,128 @@ const ByMehanicsGameScreen = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              shadowColor: '#fdcf55',
+              shadowOffset: {width: 0, height: 3},
+              shadowOpacity: 0.9,
+              shadowRadius: 10,
             }}
             onPress={() => {
               navigation.goBack();
             }}>
-            <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
           </TouchableOpacity>
+
+          {/**SIDEBAR */}
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={sideBarIsVisible}>
+            <View
+              style={{
+                backgroundColor: '#000',
+                flex: 1,
+                marginRight: '30%',
+                borderRightColor: '#fdcf55',
+                borderWidth: 3,
+                borderTopRightRadius: 10,
+                borderBottomRightRadius: 10,
+              }}>
+              {/**BTN route & close block */}
+              <View style={{marginTop: 70, marginLeft: 20}}>
+                {/**BTN SideBar Close */}
+                <TouchableOpacity
+                  onPress={() => {
+                    setSideBarIsVisible(false);
+                  }}
+                  style={{marginBottom: 10}}>
+                  <Text
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
+                    X
+                  </Text>
+                </TouchableOpacity>
+
+                {/**BTN SideBar Route */}
+                <View>
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                      borderBottomWidth: 1,
+                      borderColor: '#fdcf55',
+                      width: 140,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('GamesScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      Games
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{marginBottom: 10}}
+                    onPress={() => {
+                      navigation.navigate('ProfileScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      Profile
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('HistoryScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal>
         </SafeAreaView>
       </ImageBackground>
     </View>

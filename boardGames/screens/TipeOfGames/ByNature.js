@@ -166,7 +166,7 @@ const ByNatureGameScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/bgr1.jpeg')}
+        source={require('../../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
@@ -183,18 +183,22 @@ const ByNatureGameScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
               }}>
               <AntDesign
                 name="menu-fold"
-                style={{fontSize: 40, color: 'gold'}}
+                style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
           </View>
           <View style={{alignItems: 'center'}}>
-            <Text style={{color: 'gold', fontSize: 25}}>
+            <Text style={{color: '#fdcf55', fontSize: 25}}>
               By the nature of game :
             </Text>
           </View>
@@ -217,8 +221,12 @@ const ByNatureGameScreen = ({navigation}) => {
                     borderTopRightRadius: 30,
                     borderTopLeftRadius: 30,
                     borderWidth: 3,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     //width: 340,
+                    shadowColor: '#fdcf55',
+                    shadowOffset: {width: 0, height: 3},
+                    shadowOpacity: 0.9,
+                    shadowRadius: 10,
                   }}>
                   <Image
                     source={i.photo}
@@ -239,7 +247,7 @@ const ByNatureGameScreen = ({navigation}) => {
                         backgroundColor: 'rgba(128, 128, 128, 0.6)',
                         width: '100%',
                         paddingLeft: 30,
-                        color: 'gold',
+                        color: '#fdcf55',
                       }}>
                       {i.title}
                     </Text>
@@ -261,11 +269,15 @@ const ByNatureGameScreen = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              shadowColor: '#fdcf55',
+              shadowOffset: {width: 0, height: 3},
+              shadowOpacity: 0.9,
+              shadowRadius: 10,
             }}
             onPress={() => {
               navigation.goBack();
             }}>
-            <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
           </TouchableOpacity>
 
           {/**SIDEBAR */}
@@ -278,7 +290,7 @@ const ByNatureGameScreen = ({navigation}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginRight: '30%',
-                borderRightColor: 'gold',
+                borderRightColor: '#fdcf55',
                 borderWidth: 3,
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
@@ -292,7 +304,11 @@ const ByNatureGameScreen = ({navigation}) => {
                   }}
                   style={{marginBottom: 10}}>
                   <Text
-                    style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -308,7 +324,11 @@ const ByNatureGameScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Home
                     </Text>
                   </TouchableOpacity>
@@ -317,7 +337,7 @@ const ByNatureGameScreen = ({navigation}) => {
                     style={{
                       marginBottom: 10,
                       borderBottomWidth: 1,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       width: 140,
                     }}
                     onPress={() => {
@@ -325,7 +345,11 @@ const ByNatureGameScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Games
                     </Text>
                   </TouchableOpacity>
@@ -337,7 +361,11 @@ const ByNatureGameScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Profile
                     </Text>
                   </TouchableOpacity>
@@ -351,8 +379,30 @@ const ByNatureGameScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
                     </Text>
                   </TouchableOpacity>
                 </View>

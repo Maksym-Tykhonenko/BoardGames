@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -14,9 +14,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {uid} from 'uid';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const NewTipeOfGame = ({navigation, route}) => {
-  console.log('route', route.params.titel);
+  //
   const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [inputText, setInputText] = useState('');
@@ -25,6 +26,45 @@ const NewTipeOfGame = ({navigation, route}) => {
   const [newTipes, setNewTipes] = useState([]);
   console.log('newTipes==>', newTipes);
   console.log('selectPhoto==>', selectPhoto);
+
+  const title = route.params.titel;
+  const test = `NewTipeOfGame${title}`;
+  console.log('test==>', test);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [newTipes]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        newTipes,
+      };
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(`NewTipeOfGame${title}`, jsonData);
+      console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`NewTipeOfGame${title}`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        console.log('parsedData==>', parsedData);
+        setNewTipes(parsedData.newTipes);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  /////////////////////////
 
   const ImagePicer = () => {
     let options = {
@@ -57,11 +97,12 @@ const NewTipeOfGame = ({navigation, route}) => {
     setSelectPhoto(null);
     setModalIsVisible(!modalIsVisible);
   };
+
   return (
     <View style={{flex: 1}}>
       <ImageBackground
         style={{flex: 1}}
-        source={require('../assets/bgr1.jpeg')}>
+        source={require('../assets/bgrN2.jpeg')}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             {/**SIDEBAR BTN open */}
@@ -73,13 +114,17 @@ const NewTipeOfGame = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
               }}>
               <AntDesign
                 name="menu-fold"
-                style={{fontSize: 40, color: 'gold'}}
+                style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
 
@@ -92,20 +137,26 @@ const NewTipeOfGame = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
               }}
               onPress={() => {
                 setModalIsVisible(true);
               }}>
               <Entypo
                 name="add-to-list"
-                style={{fontSize: 40, color: 'gold'}}
+                style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
           </View>
 
-          <Text style={{color: 'gold', fontSize: 30, fontWeight: 'bold'}}>
-            {route.params.titel}
-          </Text>
+          <View style={{alignItems: 'center'}}>
+            <Text style={{color: '#fdcf55', fontSize: 30}}>
+              {route.params.titel}:
+            </Text>
+          </View>
 
           <ScrollView showsVerticalScrollIndicator={false}>
             {newTipes.map(tipe => {
@@ -117,6 +168,10 @@ const NewTipeOfGame = ({navigation, route}) => {
                     width: '100%',
                     marginBottom: 10,
                     borderRadius: 20,
+                    shadowColor: '#fdcf55',
+                    shadowOffset: {width: 0, height: 3},
+                    shadowOpacity: 0.9,
+                    shadowRadius: 10,
                   }}>
                   <Image
                     source={{uri: tipe.photo}}
@@ -124,10 +179,14 @@ const NewTipeOfGame = ({navigation, route}) => {
                   />
                   <View style={{alignItems: 'center'}}>
                     <Text
-                      style={{color: 'gold', fontSize: 25, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                      }}>
                       {tipe.titel}
                     </Text>
-                    <Text style={{color: 'gold', fontSize: 18}}>
+                    <Text style={{color: '#fdcf55', fontSize: 18}}>
                       Discription: {tipe.discription}
                     </Text>
                   </View>
@@ -148,11 +207,15 @@ const NewTipeOfGame = ({navigation, route}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              shadowColor: '#fdcf55',
+              shadowOffset: {width: 0, height: 3},
+              shadowOpacity: 0.9,
+              shadowRadius: 10,
             }}
             onPress={() => {
               navigation.goBack();
             }}>
-            <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
           </TouchableOpacity>
 
           {/**SIDEBAR */}
@@ -165,7 +228,7 @@ const NewTipeOfGame = ({navigation, route}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginRight: '30%',
-                borderRightColor: 'gold',
+                borderRightColor: '#fdcf55',
                 borderWidth: 3,
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
@@ -179,7 +242,11 @@ const NewTipeOfGame = ({navigation, route}) => {
                   }}
                   style={{marginBottom: 10}}>
                   <Text
-                    style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -189,22 +256,8 @@ const NewTipeOfGame = ({navigation, route}) => {
                   <TouchableOpacity
                     style={{
                       marginBottom: 10,
-                    }}
-                    onPress={() => {
-                      navigation.navigate('Home');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
-                      Home
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{
-                      marginBottom: 10,
                       borderBottomWidth: 1,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       width: 140,
                     }}
                     onPress={() => {
@@ -212,7 +265,11 @@ const NewTipeOfGame = ({navigation, route}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Games
                     </Text>
                   </TouchableOpacity>
@@ -224,7 +281,11 @@ const NewTipeOfGame = ({navigation, route}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Profile
                     </Text>
                   </TouchableOpacity>
@@ -238,8 +299,30 @@ const NewTipeOfGame = ({navigation, route}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -257,7 +340,7 @@ const NewTipeOfGame = ({navigation, route}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginTop: '30%',
-                borderColor: 'gold',
+                borderColor: '#fdcf55',
                 borderWidth: 3,
                 borderRadius: 40,
               }}>
@@ -272,13 +355,15 @@ const NewTipeOfGame = ({navigation, route}) => {
                   marginRight: 20,
                   marginTop: 10,
                 }}>
-                <Text style={{color: 'gold', fontSize: 35, fontWeight: 'bold'}}>
+                <Text
+                  style={{color: '#fdcf55', fontSize: 35, fontWeight: 'bold'}}>
                   X
                 </Text>
               </TouchableOpacity>
 
               <View style={{alignItems: 'center'}}>
-                <Text style={{color: 'gold', fontSize: 25, fontWeight: 'bold'}}>
+                <Text
+                  style={{color: '#fdcf55', fontSize: 25, fontWeight: 'bold'}}>
                   Add game types:
                 </Text>
               </View>
@@ -289,10 +374,10 @@ const NewTipeOfGame = ({navigation, route}) => {
                   placeholderTextColor="rgba(255, 215, 0, 100)"
                   //multiline={true}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: '80%',
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 10,
                     borderRadius: 15,
@@ -308,10 +393,10 @@ const NewTipeOfGame = ({navigation, route}) => {
                   placeholderTextColor="rgba(255, 215, 0, 100)"
                   multiline={true}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: '80%',
                     height: 120,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 10,
                     borderRadius: 15,
@@ -329,10 +414,10 @@ const NewTipeOfGame = ({navigation, route}) => {
                     ImagePicer();
                   }}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: '80%',
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 5,
                     borderRadius: 15,
@@ -341,7 +426,11 @@ const NewTipeOfGame = ({navigation, route}) => {
                     marginTop: 20,
                   }}>
                   <Text
-                    style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontWeight: 'bold',
+                      fontSize: 25,
+                    }}>
                     ADD PHOTO
                   </Text>
                 </TouchableOpacity>
@@ -351,10 +440,10 @@ const NewTipeOfGame = ({navigation, route}) => {
                     handleAddTipesOfTheGame();
                   }}
                   style={{
-                    color: 'gold',
+                    color: '#fdcf55',
                     width: 150,
                     height: 60,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
                     borderWidth: 3,
                     padding: 5,
                     borderRadius: 15,
@@ -363,7 +452,11 @@ const NewTipeOfGame = ({navigation, route}) => {
                     marginTop: 20,
                   }}>
                   <Text
-                    style={{color: 'gold', fontWeight: 'bold', fontSize: 25}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontWeight: 'bold',
+                      fontSize: 25,
+                    }}>
                     ADD
                   </Text>
                 </TouchableOpacity>

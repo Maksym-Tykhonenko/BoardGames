@@ -16,11 +16,18 @@ import ByNumberPlayersScreen from './screens/TipeOfGames/ByNumberPlayersScreen';
 import IntelectGameScreen from './screens/IntelectTipe/IntelectGameScreen';
 import NewTipeOfGame from './screens/NewTipeOfGame';
 import OneIntGame from './screens/IntelectTipe/OneIntGame';
+import NewGame from './screens/NewGame';
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="GamesScreen"
+          component={GamesScreen}
+          options={{headerShown: false}}
+        />
+
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -36,12 +43,6 @@ const App = () => {
         <Stack.Screen
           name="HistoryScreen"
           component={HistoryScreen}
-          options={{headerShown: false}}
-        />
-
-        <Stack.Screen
-          name="GamesScreen"
-          component={GamesScreen}
           options={{headerShown: false}}
         />
 
@@ -84,6 +85,12 @@ const App = () => {
         <Stack.Screen
           name="OneIntGame"
           component={OneIntGame}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="NewGame"
+          component={NewGame}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

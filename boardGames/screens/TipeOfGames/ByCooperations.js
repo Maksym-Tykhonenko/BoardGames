@@ -20,43 +20,21 @@ const tipes = [
     photo: require('../../assets/Everyone-for-himself.jpeg'),
     exampleGames: [
       {
-        name: 'chess',
-        logo: require('../../assets/chess.webp'),
-        discreption: `
-Chess is a two-player strategy board game that has been played for centuries, captivating minds with its intricate rules and endless possibilities. The game is played on an 8x8 square board, with each player starting with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.
+        name: 'Free-for-All Card Games',
+        logo: require('../../assets/FreeForAllCardGames.jpg'),
+        discreption: `In a free-for-all card game, each player competes individually against all other players, with no teams or alliances. Examples of such games include:
 
-The objective of chess is to checkmate your opponent's king, which means placing their king in a position where it is under attack and cannot escape capture. Players achieve this by moving their pieces strategically across the board, using a combination of tactics, foresight, and planning.
-
-Each type of piece moves in a unique way:
-
-The king can move one square in any direction.
-The queen can move any number of squares diagonally, horizontally, or vertically.
-Rooks move any number of squares horizontally or vertically.
-Bishops move any number of squares diagonally.
-Knights move in an "L" shape: two squares in one direction and then one square perpendicular to that.
-Pawns move forward one square, but capture diagonally. On their first move, pawns have the option to move forward two squares.
-The game unfolds as players maneuver their pieces to control the center of the board, protect their own pieces, and attack their opponent's. Tactics such as forks, pins, skewers, and discovered attacks add layers of complexity to the game. A strong understanding of positional play, pawn structures, and endgame techniques is essential for success.
-
-Chess is not only a game of skill but also a test of mental stamina, patience, and concentration. It has evolved into a competitive sport, with professional players competing in tournaments worldwide. Moreover, it serves as a tool for education, fostering critical thinking, problem-solving, and strategic planning skills.
-
-Overall, chess is a timeless game that continues to captivate players of all ages and backgrounds, challenging them to unlock the secrets of the 64 squares and master the art of warfare on the chessboard.`,
+Uno: In Uno, players race to be the first to empty their hand of cards by matching them to the top card of the discard pile by either color, number, or action. Players can also strategically use action cards to force opponents to draw cards or skip their turn.
+Exploding Kittens: Exploding Kittens is a card game where players draw cards from a deck, hoping to avoid drawing an "exploding kitten" card that would knock them out of the game. Players can use various cards to manipulate the deck, attack opponents, or protect themselves from exploding kittens.`,
       },
       {
-        name: 'Go',
-        logo: require('../../assets/Go_board.jpg'),
-        discreption: `Go, also known as Weiqi in Chinese and Baduk in Korean, is a strategic board game that originated in ancient China over 2,500 years ago. It is renowned for its simplicity of rules combined with profound strategic depth, making it one of the most complex and intellectually stimulating games in the world.
+        name: 'Battle Royale Video Games',
+        logo: require('../../assets/BattleRoyaleVideoGames.jpeg'),
+        discreption: `Battle Royale video games are a popular genre where players compete against each other in a large-scale, last-man-standing competition. Examples include:
 
-The game is played on a grid board, typically 19x19 lines, although smaller board sizes like 9x9 or 13x13 are also common for beginners or shorter games. Players take turns placing black and white stones on the intersections of the lines, aiming to control territory and capture their opponent's stones.
-
-The objective of Go is to surround and capture territory while simultaneously preventing your opponent from doing the same. Unlike chess, where the pieces are captured by directly attacking them, in Go, stones are captured by surrounding them with your own stones so that they have no liberties, or empty adjacent intersections, left.
-
-Go is distinguished by its simple rules and emergent complexity. Despite having only a few rules, the game offers an incredibly vast number of possible board positions and strategic variations, creating endless opportunities for creative and deep gameplay. Players must balance offense and defense, as well as short-term tactics with long-term strategy, to outmaneuver their opponent and dominate the board.
-
-Strategic concepts in Go include influence, territory, shape, thickness, and capturing races. Players strive to build strong positions, create efficient shapes, and anticipate their opponent's moves to gain a positional advantage. The endgame phase is crucial, where players solidify their territories, reduce their opponent's influence, and maximize their own score.
-
-Go has a rich cultural heritage and is deeply ingrained in East Asian traditions. It has also gained popularity worldwide, with a thriving international community of players, tournaments, and professional organizations. The game is not only a test of strategic thinking but also promotes qualities such as patience, concentration, humility, and respect for one's opponent.
-
-In summary, Go is a timeless and elegant game that challenges players to navigate the complexities of strategy, intuition, and psychological warfare on the 19x19 grid, making it a revered pursuit for enthusiasts and scholars alike.`,
+Fortnite: Fortnite is a multiplayer online game where 100 players are dropped onto an island and must scavenge for weapons, resources, and equipment while eliminating opponents. The last player or team standing wins the game.
+PlayerUnknown's Battlegrounds (PUBG): PUBG follows a similar premise to Fortnite, with players parachuting onto an island and battling it out until only one player or team remains. Players must strategize to survive, navigate the shrinking play zone, and outmaneuver their opponents to secure victory.
+In both types of games, players must rely on their individual skills, strategy, and decision-making to outsmart and outmaneuver their opponents, with the ultimate goal of being the last person standing or achieving victory.`,
       },
     ],
   },
@@ -65,43 +43,24 @@ In summary, Go is a timeless and elegant game that challenges players to navigat
     photo: require('../../assets/Team.webp'),
     exampleGames: [
       {
-        name: 'chess',
-        logo: require('../../assets/chess.webp'),
-        discreption: `
-Chess is a two-player strategy board game that has been played for centuries, captivating minds with its intricate rules and endless possibilities. The game is played on an 8x8 square board, with each player starting with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.
+        name: 'Capture the Flag',
+        logo: require('../../assets/CaptureTheFlag.png'),
+        discreption: `Capture the Flag is a classic outdoor game that pits two teams against each other in a race to capture the opposing team's flag and return it to their own territory. The game is typically played in a large outdoor area with clearly defined boundaries.
+Players are divided into two teams, each with their own territory and flag. The objective is for each team to infiltrate the opponent's territory, capture their flag, and return it safely to their own territory without being tagged by opponents.
 
-The objective of chess is to checkmate your opponent's king, which means placing their king in a position where it is under attack and cannot escape capture. Players achieve this by moving their pieces strategically across the board, using a combination of tactics, foresight, and planning.
+To prevent their flag from being captured, players must defend their territory and tag opponents who enter it. Players who are tagged must return to their own territory before resuming play.
 
-Each type of piece moves in a unique way:
-
-The king can move one square in any direction.
-The queen can move any number of squares diagonally, horizontally, or vertically.
-Rooks move any number of squares horizontally or vertically.
-Bishops move any number of squares diagonally.
-Knights move in an "L" shape: two squares in one direction and then one square perpendicular to that.
-Pawns move forward one square, but capture diagonally. On their first move, pawns have the option to move forward two squares.
-The game unfolds as players maneuver their pieces to control the center of the board, protect their own pieces, and attack their opponent's. Tactics such as forks, pins, skewers, and discovered attacks add layers of complexity to the game. A strong understanding of positional play, pawn structures, and endgame techniques is essential for success.
-
-Chess is not only a game of skill but also a test of mental stamina, patience, and concentration. It has evolved into a competitive sport, with professional players competing in tournaments worldwide. Moreover, it serves as a tool for education, fostering critical thinking, problem-solving, and strategic planning skills.
-
-Overall, chess is a timeless game that continues to captivate players of all ages and backgrounds, challenging them to unlock the secrets of the 64 squares and master the art of warfare on the chessboard.`,
+Capture the Flag requires teamwork, strategy, and communication, as players must work together to coordinate their movements, protect their flag, and outmaneuver their opponents to achieve victory.`,
       },
       {
-        name: 'Go',
-        logo: require('../../assets/Go_board.jpg'),
-        discreption: `Go, also known as Weiqi in Chinese and Baduk in Korean, is a strategic board game that originated in ancient China over 2,500 years ago. It is renowned for its simplicity of rules combined with profound strategic depth, making it one of the most complex and intellectually stimulating games in the world.
+        name: 'Soccer (Football)',
+        logo: require('../../assets/Soccer.jpeg'),
+        discreption: `Soccer, known as football in many parts of the world, is a team sport played between two teams of eleven players each. The objective of the game is to score goals by kicking a ball into the opposing team's goal.
+Players are divided into two teams, with each team trying to control the ball and score goals while preventing the opposing team from doing the same. The game is played on a rectangular field with goals at each end.
 
-The game is played on a grid board, typically 19x19 lines, although smaller board sizes like 9x9 or 13x13 are also common for beginners or shorter games. Players take turns placing black and white stones on the intersections of the lines, aiming to control territory and capture their opponent's stones.
+Soccer requires teamwork, coordination, and strategy, as players must work together to pass the ball, create scoring opportunities, and defend their own goal. Players must also adhere to rules governing fouls, offsides, and other aspects of gameplay.
 
-The objective of Go is to surround and capture territory while simultaneously preventing your opponent from doing the same. Unlike chess, where the pieces are captured by directly attacking them, in Go, stones are captured by surrounding them with your own stones so that they have no liberties, or empty adjacent intersections, left.
-
-Go is distinguished by its simple rules and emergent complexity. Despite having only a few rules, the game offers an incredibly vast number of possible board positions and strategic variations, creating endless opportunities for creative and deep gameplay. Players must balance offense and defense, as well as short-term tactics with long-term strategy, to outmaneuver their opponent and dominate the board.
-
-Strategic concepts in Go include influence, territory, shape, thickness, and capturing races. Players strive to build strong positions, create efficient shapes, and anticipate their opponent's moves to gain a positional advantage. The endgame phase is crucial, where players solidify their territories, reduce their opponent's influence, and maximize their own score.
-
-Go has a rich cultural heritage and is deeply ingrained in East Asian traditions. It has also gained popularity worldwide, with a thriving international community of players, tournaments, and professional organizations. The game is not only a test of strategic thinking but also promotes qualities such as patience, concentration, humility, and respect for one's opponent.
-
-In summary, Go is a timeless and elegant game that challenges players to navigate the complexities of strategy, intuition, and psychological warfare on the 19x19 grid, making it a revered pursuit for enthusiasts and scholars alike.`,
+Soccer is one of the most popular and widely played sports in the world, enjoyed by millions of people of all ages and skill levels. It promotes physical fitness, teamwork, and sportsmanship, and provides a thrilling and competitive experience for players and spectators alike.`,
       },
     ],
   },
@@ -110,43 +69,25 @@ In summary, Go is a timeless and elegant game that challenges players to navigat
     photo: require('../../assets/the-coalition.jpg'),
     exampleGames: [
       {
-        name: 'chess',
-        logo: require('../../assets/chess.webp'),
-        discreption: `
-Chess is a two-player strategy board game that has been played for centuries, captivating minds with its intricate rules and endless possibilities. The game is played on an 8x8 square board, with each player starting with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.
+        name: 'Diplomacy',
+        logo: require('../../assets/Diplomacy.jpeg'),
+        discreption: `Diplomacy is a classic board game of negotiation and strategy set in Europe just before the outbreak of World War I. In Diplomacy, players represent the major European powers of the time, such as England, France, Germany, and Russia.
+The game is played on a map of Europe divided into provinces, and players maneuver their armies and fleets to conquer territories and gain control of supply centers. However, Diplomacy is primarily a game of negotiation and diplomacy, as players must form alliances, negotiate treaties, and betray their opponents to achieve victory.
 
-The objective of chess is to checkmate your opponent's king, which means placing their king in a position where it is under attack and cannot escape capture. Players achieve this by moving their pieces strategically across the board, using a combination of tactics, foresight, and planning.
-
-Each type of piece moves in a unique way:
-
-The king can move one square in any direction.
-The queen can move any number of squares diagonally, horizontally, or vertically.
-Rooks move any number of squares horizontally or vertically.
-Bishops move any number of squares diagonally.
-Knights move in an "L" shape: two squares in one direction and then one square perpendicular to that.
-Pawns move forward one square, but capture diagonally. On their first move, pawns have the option to move forward two squares.
-The game unfolds as players maneuver their pieces to control the center of the board, protect their own pieces, and attack their opponent's. Tactics such as forks, pins, skewers, and discovered attacks add layers of complexity to the game. A strong understanding of positional play, pawn structures, and endgame techniques is essential for success.
-
-Chess is not only a game of skill but also a test of mental stamina, patience, and concentration. It has evolved into a competitive sport, with professional players competing in tournaments worldwide. Moreover, it serves as a tool for education, fostering critical thinking, problem-solving, and strategic planning skills.
-
-Overall, chess is a timeless game that continues to captivate players of all ages and backgrounds, challenging them to unlock the secrets of the 64 squares and master the art of warfare on the chessboard.`,
+Players can form coalitions to jointly attack a common enemy or to defend against a stronger opponent. However, alliances are fragile, and players must carefully balance their own interests with the needs of their allies to maintain their coalition and secure victory.`,
       },
       {
-        name: 'Go',
-        logo: require('../../assets/Go_board.jpg'),
-        discreption: `Go, also known as Weiqi in Chinese and Baduk in Korean, is a strategic board game that originated in ancient China over 2,500 years ago. It is renowned for its simplicity of rules combined with profound strategic depth, making it one of the most complex and intellectually stimulating games in the world.
+        name: 'Axis & Allies',
+        logo: require('../../assets/AxisAllies.jpg'),
+        discreption: `Axis & Allies is a strategy board game set during World War II, where players command the major powers of the Axis (Germany, Japan, Italy) and the Allies (United States, United Kingdom, Soviet Union). The game is played on a map of the world divided into territories, and players use military units such as infantry, tanks, and aircraft to conquer territories and achieve their objectives.
+In Axis & Allies, players can form coalitions with other players to coordinate their military efforts and achieve strategic goals. For example, the Allies may work together to liberate Europe from Axis control, while the Axis powers may collaborate to conquer key territories and defeat their opponents.
 
-The game is played on a grid board, typically 19x19 lines, although smaller board sizes like 9x9 or 13x13 are also common for beginners or shorter games. Players take turns placing black and white stones on the intersections of the lines, aiming to control territory and capture their opponent's stones.
+Coalitions in Axis & Allies are essential for success, as players must combine their forces and resources to overcome their opponents' defenses and achieve victory. However, alliances can be fragile, and players must be wary of betrayals and backstabbing as they navigate the complex politics of World War II.
 
-The objective of Go is to surround and capture territory while simultaneously preventing your opponent from doing the same. Unlike chess, where the pieces are captured by directly attacking them, in Go, stones are captured by surrounding them with your own stones so that they have no liberties, or empty adjacent intersections, left.
 
-Go is distinguished by its simple rules and emergent complexity. Despite having only a few rules, the game offers an incredibly vast number of possible board positions and strategic variations, creating endless opportunities for creative and deep gameplay. Players must balance offense and defense, as well as short-term tactics with long-term strategy, to outmaneuver their opponent and dominate the board.
 
-Strategic concepts in Go include influence, territory, shape, thickness, and capturing races. Players strive to build strong positions, create efficient shapes, and anticipate their opponent's moves to gain a positional advantage. The endgame phase is crucial, where players solidify their territories, reduce their opponent's influence, and maximize their own score.
 
-Go has a rich cultural heritage and is deeply ingrained in East Asian traditions. It has also gained popularity worldwide, with a thriving international community of players, tournaments, and professional organizations. The game is not only a test of strategic thinking but also promotes qualities such as patience, concentration, humility, and respect for one's opponent.
-
-In summary, Go is a timeless and elegant game that challenges players to navigate the complexities of strategy, intuition, and psychological warfare on the 19x19 grid, making it a revered pursuit for enthusiasts and scholars alike.`,
+`,
       },
     ],
   },
@@ -155,43 +96,22 @@ In summary, Go is a timeless and elegant game that challenges players to navigat
     photo: require('../../assets/Cooperative.webp'),
     exampleGames: [
       {
-        name: 'chess',
-        logo: require('../../assets/chess.webp'),
-        discreption: `
-Chess is a two-player strategy board game that has been played for centuries, captivating minds with its intricate rules and endless possibilities. The game is played on an 8x8 square board, with each player starting with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.
+        name: 'Pandemic',
+        logo: require('../../assets/Pandemic_board_game.jpg'),
+        discreption: `Pandemic is a cooperative board game where players work together as members of a disease control team to stop the outbreak of deadly diseases threatening the world. Each player takes on a specific role with unique abilities, such as scientist, medic, or dispatcher.
+The objective of Pandemic is to work together to find cures for four different diseases, represented by colored cubes on the game board, before they spread out of control and cause a global pandemic. Players must travel between cities, treat infected populations, and research cures while managing outbreaks and preventing the diseases from spreading further.
 
-The objective of chess is to checkmate your opponent's king, which means placing their king in a position where it is under attack and cannot escape capture. Players achieve this by moving their pieces strategically across the board, using a combination of tactics, foresight, and planning.
-
-Each type of piece moves in a unique way:
-
-The king can move one square in any direction.
-The queen can move any number of squares diagonally, horizontally, or vertically.
-Rooks move any number of squares horizontally or vertically.
-Bishops move any number of squares diagonally.
-Knights move in an "L" shape: two squares in one direction and then one square perpendicular to that.
-Pawns move forward one square, but capture diagonally. On their first move, pawns have the option to move forward two squares.
-The game unfolds as players maneuver their pieces to control the center of the board, protect their own pieces, and attack their opponent's. Tactics such as forks, pins, skewers, and discovered attacks add layers of complexity to the game. A strong understanding of positional play, pawn structures, and endgame techniques is essential for success.
-
-Chess is not only a game of skill but also a test of mental stamina, patience, and concentration. It has evolved into a competitive sport, with professional players competing in tournaments worldwide. Moreover, it serves as a tool for education, fostering critical thinking, problem-solving, and strategic planning skills.
-
-Overall, chess is a timeless game that continues to captivate players of all ages and backgrounds, challenging them to unlock the secrets of the 64 squares and master the art of warfare on the chessboard.`,
+Pandemic requires players to communicate, strategize, and coordinate their actions effectively to overcome the challenges posed by the game. Players must prioritize their actions, allocate resources wisely, and work together to achieve victory before time runs out.`,
       },
       {
-        name: 'Go',
-        logo: require('../../assets/Go_board.jpg'),
-        discreption: `Go, also known as Weiqi in Chinese and Baduk in Korean, is a strategic board game that originated in ancient China over 2,500 years ago. It is renowned for its simplicity of rules combined with profound strategic depth, making it one of the most complex and intellectually stimulating games in the world.
+        name: 'Forbidden Island',
+        logo: require('../../assets/Forbidden-Island-Setup.jpg'),
+        discreption: `Forbidden Island is a cooperative board game where players work together as adventurers seeking to retrieve four sacred treasures from a sinking island before it disappears beneath the waves. Each player takes on a specific role with unique abilities, such as explorer, pilot, or diver.
+The objective of Forbidden Island is to work together to collect the four treasures and escape from the island on a helicopter pad before it sinks completely. Players must navigate the island, collect treasure cards, and shore up sinking tiles while managing their limited resources and dealing with various hazards such as flooding and treasure loss.
 
-The game is played on a grid board, typically 19x19 lines, although smaller board sizes like 9x9 or 13x13 are also common for beginners or shorter games. Players take turns placing black and white stones on the intersections of the lines, aiming to control territory and capture their opponent's stones.
+Forbidden Island encourages players to communicate, plan, and collaborate as they work together to achieve their common goal. Players must use their individual abilities strategically, make decisions as a team, and adapt to changing circumstances to succeed against the odds.
 
-The objective of Go is to surround and capture territory while simultaneously preventing your opponent from doing the same. Unlike chess, where the pieces are captured by directly attacking them, in Go, stones are captured by surrounding them with your own stones so that they have no liberties, or empty adjacent intersections, left.
-
-Go is distinguished by its simple rules and emergent complexity. Despite having only a few rules, the game offers an incredibly vast number of possible board positions and strategic variations, creating endless opportunities for creative and deep gameplay. Players must balance offense and defense, as well as short-term tactics with long-term strategy, to outmaneuver their opponent and dominate the board.
-
-Strategic concepts in Go include influence, territory, shape, thickness, and capturing races. Players strive to build strong positions, create efficient shapes, and anticipate their opponent's moves to gain a positional advantage. The endgame phase is crucial, where players solidify their territories, reduce their opponent's influence, and maximize their own score.
-
-Go has a rich cultural heritage and is deeply ingrained in East Asian traditions. It has also gained popularity worldwide, with a thriving international community of players, tournaments, and professional organizations. The game is not only a test of strategic thinking but also promotes qualities such as patience, concentration, humility, and respect for one's opponent.
-
-In summary, Go is a timeless and elegant game that challenges players to navigate the complexities of strategy, intuition, and psychological warfare on the 19x19 grid, making it a revered pursuit for enthusiasts and scholars alike.`,
+Both Pandemic and Forbidden Island offer engaging and immersive cooperative gaming experiences, challenging players to work together to overcome obstacles, solve problems, and achieve victory as a team.`,
       },
     ],
   },
@@ -205,7 +125,7 @@ const ByCooperationsScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/bgr1.jpeg')}
+        source={require('../../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
@@ -222,18 +142,22 @@ const ByCooperationsScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                shadowColor: '#fdcf55',
+                shadowOffset: {width: 0, height: 3},
+                shadowOpacity: 0.9,
+                shadowRadius: 10,
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
               }}>
               <AntDesign
                 name="menu-fold"
-                style={{fontSize: 40, color: 'gold'}}
+                style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
           </View>
           <View style={{alignItems: 'center'}}>
-            <Text style={{color: 'gold', fontSize: 25}}>
+            <Text style={{color: '#fdcf55', fontSize: 25}}>
               By the degree of cooperation players :
             </Text>
           </View>
@@ -256,7 +180,11 @@ const ByCooperationsScreen = ({navigation}) => {
                     borderTopRightRadius: 30,
                     borderTopLeftRadius: 30,
                     borderWidth: 3,
-                    borderColor: 'gold',
+                    borderColor: '#fdcf55',
+                    shadowColor: '#fdcf55',
+                    shadowOffset: {width: 0, height: 3},
+                    shadowOpacity: 0.9,
+                    shadowRadius: 10,
                   }}>
                   <Image
                     source={i.photo}
@@ -277,7 +205,7 @@ const ByCooperationsScreen = ({navigation}) => {
                         backgroundColor: 'rgba(128, 128, 128, 0.6)',
                         width: '100%',
                         paddingLeft: 30,
-                        color: 'gold',
+                        color: '#fdcf55',
                       }}>
                       {i.title}
                     </Text>
@@ -303,7 +231,7 @@ const ByCooperationsScreen = ({navigation}) => {
             onPress={() => {
               navigation.goBack();
             }}>
-            <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
           </TouchableOpacity>
 
           {/**SIDEBAR */}
@@ -316,7 +244,7 @@ const ByCooperationsScreen = ({navigation}) => {
                 backgroundColor: '#000',
                 flex: 1,
                 marginRight: '30%',
-                borderRightColor: 'gold',
+                borderRightColor: '#fdcf55',
                 borderWidth: 3,
                 borderTopRightRadius: 10,
                 borderBottomRightRadius: 10,
@@ -330,7 +258,11 @@ const ByCooperationsScreen = ({navigation}) => {
                   }}
                   style={{marginBottom: 10}}>
                   <Text
-                    style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
                     X
                   </Text>
                 </TouchableOpacity>
@@ -340,22 +272,8 @@ const ByCooperationsScreen = ({navigation}) => {
                   <TouchableOpacity
                     style={{
                       marginBottom: 10,
-                    }}
-                    onPress={() => {
-                      navigation.navigate('Home');
-                      setSideBarIsVisible(false);
-                    }}>
-                    <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
-                      Home
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={{
-                      marginBottom: 10,
                       borderBottomWidth: 1,
-                      borderColor: 'gold',
+                      borderColor: '#fdcf55',
                       width: 140,
                     }}
                     onPress={() => {
@@ -363,7 +281,11 @@ const ByCooperationsScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Games
                     </Text>
                   </TouchableOpacity>
@@ -375,7 +297,11 @@ const ByCooperationsScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       Profile
                     </Text>
                   </TouchableOpacity>
@@ -389,8 +315,30 @@ const ByCooperationsScreen = ({navigation}) => {
                       setSideBarIsVisible(false);
                     }}>
                     <Text
-                      style={{color: 'gold', fontSize: 40, fontWeight: 'bold'}}>
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
                       History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
                     </Text>
                   </TouchableOpacity>
                 </View>
