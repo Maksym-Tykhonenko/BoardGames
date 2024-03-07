@@ -54,7 +54,7 @@ const HomeScreen = ({navigation}) => {
               HELLO IT`S APP ABOUT ....
             </Text>
 
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
               <View
                 style={{
                   backgroundColor: 'rgba(128, 128, 128, 0.5)',

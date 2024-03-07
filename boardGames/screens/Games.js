@@ -154,7 +154,7 @@ const GamesScreen = ({navigation}) => {
               </Text>
 
               {/**Tipe of games Btn block */}
-              <ScrollView>
+              <ScrollView showsVerticalScrollIndicator={false}>
                 <View>
                   {newTipes.map(tipe => {
                     return (
@@ -390,29 +390,6 @@ const GamesScreen = ({navigation}) => {
               </ScrollView>
             </View>
           </View>
-
-          {/**BTN Back */}
-          <TouchableOpacity
-            style={{
-              position: 'absolute',
-              bottom: 20,
-              right: 0,
-              width: 60,
-              height: 60,
-              backgroundColor: 'rgba(128, 128, 128, 0.4)',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 20,
-              shadowColor: '#fdcf55',
-              shadowOffset: {width: 0, height: 3},
-              shadowOpacity: 0.9,
-              shadowRadius: 10,
-            }}
-            onPress={() => {
-              navigation.goBack();
-            }}>
-            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
-          </TouchableOpacity>
 
           {/**SIDEBAR */}
           <Modal

@@ -162,7 +162,7 @@ const ByCooperationsScreen = ({navigation}) => {
             </Text>
           </View>
 
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             {games.map(i => {
               return (
                 <TouchableOpacity
