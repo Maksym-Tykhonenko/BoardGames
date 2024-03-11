@@ -9,6 +9,7 @@ import {
   TextInput,
   ScrollView,
   Image,
+  KeyboardAvoidingView,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -135,218 +136,225 @@ const ProfileScreen = ({navigation}) => {
 
           {/**Content */}
           <View>
-            {/**AVATAR */}
-            <View style={{alignItems: 'center'}}>
-              {!avatar ? (
-                <TouchableOpacity
-                  onPress={() => {
-                    AvatarPicer();
-                  }}
-                  style={{
-                    width: 250,
-                    height: 250,
-                    borderWidth: 5,
-                    borderColor: '#fdcf55',
-                    borderRadius: 125,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    shadowColor: '#fdcf55',
-                    shadowOffset: {width: 0, height: 3},
-                    shadowOpacity: 0.9,
-                    shadowRadius: 10,
-                  }}>
-                  <Text style={{fontSize: 25, fontWeight: 'bold'}}>
-                    PRESS HIRE
-                  </Text>
-                  <Text style={{fontSize: 25, fontWeight: 'bold'}}>FOR</Text>
-                  <Text style={{fontSize: 25, fontWeight: 'bold'}}>
-                    ADD PHOTO
-                  </Text>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity
-                  onPress={() => {
-                    AvatarPicer();
-                  }}
-                  style={{
-                    width: 250,
-                    height: 250,
-                    borderWidth: 5,
-                    borderColor: '#fdcf55',
-                    borderRadius: 125,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    shadowColor: '#fdcf55',
-                    shadowOffset: {width: 0, height: 3},
-                    shadowOpacity: 0.9,
-                    shadowRadius: 10,
-                  }}>
-                  <Image
-                    source={{uri: avatar}}
-                    style={{width: 235, height: 235, borderRadius: 125}}
-                  />
-                </TouchableOpacity>
-              )}
-            </View>
+            <ScrollView>
+              <KeyboardAvoidingView>
+                {/**AVATAR */}
+                <View style={{alignItems: 'center'}}>
+                  {!avatar ? (
+                    <TouchableOpacity
+                      onPress={() => {
+                        AvatarPicer();
+                      }}
+                      style={{
+                        width: 250,
+                        height: 250,
+                        borderWidth: 5,
+                        borderColor: '#fdcf55',
+                        borderRadius: 125,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        shadowColor: '#fdcf55',
+                        shadowOffset: {width: 0, height: 3},
+                        shadowOpacity: 0.9,
+                        shadowRadius: 10,
+                      }}>
+                      <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+                        PRESS HIRE
+                      </Text>
+                      <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+                        FOR
+                      </Text>
+                      <Text style={{fontSize: 25, fontWeight: 'bold'}}>
+                        ADD PHOTO
+                      </Text>
+                    </TouchableOpacity>
+                  ) : (
+                    <TouchableOpacity
+                      onPress={() => {
+                        AvatarPicer();
+                      }}
+                      style={{
+                        width: 250,
+                        height: 250,
+                        borderWidth: 5,
+                        borderColor: '#fdcf55',
+                        borderRadius: 125,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        shadowColor: '#fdcf55',
+                        shadowOffset: {width: 0, height: 3},
+                        shadowOpacity: 0.9,
+                        shadowRadius: 10,
+                      }}>
+                      <Image
+                        source={{uri: avatar}}
+                        style={{width: 235, height: 235, borderRadius: 125}}
+                      />
+                    </TouchableOpacity>
+                  )}
+                </View>
 
-            {/** MY DATA */}
-            {!name ? (
-              <View
-                style={{
-                  alignItems: 'center',
-                  position: 'relative',
-                  marginTop: 20,
-                }}>
-                <TextInput
-                  placeholder="Name..."
-                  placeholderTextColor={'#fdcf55'}
-                  //multiline={true}
-                  style={{
-                    color: '#fdcf55',
-                    width: '80%',
-                    height: 60,
-                    borderColor: '#fdcf55',
-                    borderWidth: 3,
-                    padding: 8,
-                    borderRadius: 15,
-                    //marginTop: 20,
-                    fontSize: 20,
-                    shadowColor: '#fdcf55',
-                    shadowOffset: {width: 0, height: 3},
-                    shadowOpacity: 0.9,
-                    shadowRadius: 10,
-                  }}
-                  onChangeText={setPrevName}
-                  value={prevName}
-                />
+                {/** MY DATA */}
+                {!name ? (
+                  <View
+                    style={{
+                      alignItems: 'center',
+                      position: 'relative',
+                      marginTop: 20,
+                    }}>
+                    <TextInput
+                      placeholder="Name..."
+                      placeholderTextColor={'#fdcf55'}
+                      //multiline={true}
+                      style={{
+                        color: '#fdcf55',
+                        width: '80%',
+                        height: 60,
+                        borderColor: '#fdcf55',
+                        borderWidth: 3,
+                        padding: 8,
+                        borderRadius: 15,
+                        //marginTop: 20,
+                        fontSize: 20,
+                        shadowColor: '#fdcf55',
+                        shadowOffset: {width: 0, height: 3},
+                        shadowOpacity: 0.9,
+                        shadowRadius: 10,
+                      }}
+                      onChangeText={setPrevName}
+                      value={prevName}
+                    />
 
-                <TouchableOpacity
-                  onPress={() => {
-                    setName(prevName);
-                  }}
-                  activeOpacity={0.95}
-                  style={{
-                    position: 'absolute',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: 60,
-                    width: 60,
-                    backgroundColor: '#fdcf55',
-                    right: 30,
-                    borderTopRightRadius: 15,
-                    borderBottomRightRadius: 15,
-                  }}>
-                  <Entypo name="check" style={{fontSize: 30}} />
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text
-                  style={{
-                    fontSize: 25,
-                    fontWeight: 'bold',
-                    color: '#fdcf55',
-                    fontSize: 40,
-                    shadowColor: '#fdcf55',
-                    shadowOffset: {width: 0, height: 3},
-                    shadowOpacity: 0.9,
-                    shadowRadius: 10,
-                  }}>
-                  {name}
-                </Text>
-              </View>
-            )}
+                    <TouchableOpacity
+                      onPress={() => {
+                        setName(prevName);
+                      }}
+                      activeOpacity={0.95}
+                      style={{
+                        position: 'absolute',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: 60,
+                        width: 60,
+                        backgroundColor: '#fdcf55',
+                        right: 30,
+                        borderTopRightRadius: 15,
+                        borderBottomRightRadius: 15,
+                      }}>
+                      <Entypo name="check" style={{fontSize: 30}} />
+                    </TouchableOpacity>
+                  </View>
+                ) : (
+                  <View style={{alignItems: 'center', marginTop: 20}}>
+                    <Text
+                      style={{
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        shadowColor: '#fdcf55',
+                        shadowOffset: {width: 0, height: 3},
+                        shadowOpacity: 0.9,
+                        shadowRadius: 10,
+                      }}>
+                      {name}
+                    </Text>
+                  </View>
+                )}
 
-            {!age ? (
-              <View
-                style={{
-                  alignItems: 'center',
-                  position: 'relative',
-                  marginTop: 20,
-                }}>
-                <TextInput
-                  keyboardType="numeric"
-                  placeholder="Age..."
-                  placeholderTextColor={'#fdcf55'}
-                  //multiline={true}
-                  style={{
-                    color: '#fdcf55',
-                    width: '80%',
-                    height: 60,
-                    borderColor: '#fdcf55',
-                    borderWidth: 3,
-                    padding: 8,
-                    borderRadius: 15,
-                    //
-                    fontSize: 20,
-                    shadowColor: '#fdcf55',
-                    shadowOffset: {width: 0, height: 3},
-                    shadowOpacity: 0.9,
-                    shadowRadius: 10,
-                  }}
-                  onChangeText={setPrevAge}
-                  value={prevAge}
-                />
-                <TouchableOpacity
-                  onPress={() => {
-                    setAge(prevAge);
-                  }}
-                  activeOpacity={0.95}
-                  style={{
-                    position: 'absolute',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: 60,
-                    width: 60,
-                    backgroundColor: '#fdcf55',
-                    right: 30,
-                    borderTopRightRadius: 15,
-                    borderBottomRightRadius: 15,
-                  }}>
-                  <Entypo name="check" style={{fontSize: 30}} />
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text
-                  style={{
-                    fontSize: 25,
-                    fontWeight: 'bold',
-                    color: '#fdcf55',
-                    fontSize: 40,
-                    shadowColor: '#fdcf55',
-                    shadowOffset: {width: 0, height: 3},
-                    shadowOpacity: 0.9,
-                    shadowRadius: 10,
-                  }}>
-                  {age} yers
-                </Text>
-              </View>
-            )}
+                {!age ? (
+                  <View
+                    style={{
+                      alignItems: 'center',
+                      position: 'relative',
+                      marginTop: 20,
+                    }}>
+                    <TextInput
+                      keyboardType="numeric"
+                      placeholder="Age..."
+                      placeholderTextColor={'#fdcf55'}
+                      //multiline={true}
+                      style={{
+                        color: '#fdcf55',
+                        width: '80%',
+                        height: 60,
+                        borderColor: '#fdcf55',
+                        borderWidth: 3,
+                        padding: 8,
+                        borderRadius: 15,
+                        //
+                        fontSize: 20,
+                        shadowColor: '#fdcf55',
+                        shadowOffset: {width: 0, height: 3},
+                        shadowOpacity: 0.9,
+                        shadowRadius: 10,
+                      }}
+                      onChangeText={setPrevAge}
+                      value={prevAge}
+                    />
+                    <TouchableOpacity
+                      onPress={() => {
+                        setAge(prevAge);
+                      }}
+                      activeOpacity={0.95}
+                      style={{
+                        position: 'absolute',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: 60,
+                        width: 60,
+                        backgroundColor: '#fdcf55',
+                        right: 30,
+                        borderTopRightRadius: 15,
+                        borderBottomRightRadius: 15,
+                      }}>
+                      <Entypo name="check" style={{fontSize: 30}} />
+                    </TouchableOpacity>
+                  </View>
+                ) : (
+                  <View style={{alignItems: 'center', marginTop: 20}}>
+                    <Text
+                      style={{
+                        fontSize: 25,
+                        fontWeight: 'bold',
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        shadowColor: '#fdcf55',
+                        shadowOffset: {width: 0, height: 3},
+                        shadowOpacity: 0.9,
+                        shadowRadius: 10,
+                      }}>
+                      {age} years
+                    </Text>
+                  </View>
+                )}
 
-            <View style={{alignItems: 'center', marginTop: 20}}>
-              <TouchableOpacity
-                onPress={() => {
-                  setModalIsVisible(true);
-                }}
-                activeOpacity={0.7}
-                style={{
-                  width: 250,
-                  height: 60,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#fdcf55',
-                  borderRadius: 15,
-                  shadowColor: '#fdcf55',
-                  shadowOffset: {width: 0, height: 3},
-                  shadowOpacity: 0.9,
-                  shadowRadius: 10,
-                }}>
-                <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-                  OPEN GALLARY
-                </Text>
-              </TouchableOpacity>
-            </View>
+                <View style={{alignItems: 'center', marginTop: 20}}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setModalIsVisible(true);
+                    }}
+                    activeOpacity={0.7}
+                    style={{
+                      width: 250,
+                      height: 60,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: '#fdcf55',
+                      borderRadius: 15,
+                      shadowColor: '#fdcf55',
+                      shadowOffset: {width: 0, height: 3},
+                      shadowOpacity: 0.9,
+                      shadowRadius: 10,
+                    }}>
+                    <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+                      OPEN GALLARY
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={{height: 300}}></View>
+              </KeyboardAvoidingView>
+            </ScrollView>
           </View>
 
           {/**SIDEBAR */}

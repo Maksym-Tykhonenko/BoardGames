@@ -361,106 +361,113 @@ const NewTipeOfGame = ({navigation, route}) => {
                 </Text>
               </TouchableOpacity>
 
-              <View style={{alignItems: 'center'}}>
-                <Text
-                  style={{color: '#fdcf55', fontSize: 25, fontWeight: 'bold'}}>
-                  Add game types:
-                </Text>
-              </View>
-
-              <View style={{alignItems: 'center'}}>
-                <TextInput
-                  placeholder="Enter type name..."
-                  placeholderTextColor="rgba(255, 215, 0, 100)"
-                  //multiline={true}
-                  style={{
-                    color: '#fdcf55',
-                    width: '80%',
-                    height: 60,
-                    borderColor: '#fdcf55',
-                    borderWidth: 3,
-                    padding: 10,
-                    borderRadius: 15,
-                    marginTop: 20,
-                    fontSize: 20,
-                  }}
-                  onChangeText={setInputText}
-                  value={inputText}
-                />
-
-                <TextInput
-                  placeholder="Discription..."
-                  placeholderTextColor="rgba(255, 215, 0, 100)"
-                  multiline={true}
-                  style={{
-                    color: '#fdcf55',
-                    width: '80%',
-                    height: 120,
-                    borderColor: '#fdcf55',
-                    borderWidth: 3,
-                    padding: 10,
-                    borderRadius: 15,
-                    marginTop: 20,
-                    fontSize: 20,
-                  }}
-                  onChangeText={setDiscriptionText}
-                  value={discriptionText}
-                />
-
-                {/**BTN add photo or Img*/}
-
-                <TouchableOpacity
-                  onPress={() => {
-                    ImagePicer();
-                  }}
-                  style={{
-                    color: '#fdcf55',
-                    width: '80%',
-                    height: 60,
-                    borderColor: '#fdcf55',
-                    borderWidth: 3,
-                    padding: 5,
-                    borderRadius: 15,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: 20,
-                  }}>
+              <ScrollView>
+                <View style={{alignItems: 'center'}}>
                   <Text
                     style={{
                       color: '#fdcf55',
-                      fontWeight: 'bold',
                       fontSize: 25,
+                      fontWeight: 'bold',
                     }}>
-                    ADD PHOTO
+                    Add game types:
                   </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  onPress={() => {
-                    handleAddTipesOfTheGame();
-                  }}
-                  style={{
-                    color: '#fdcf55',
-                    width: 150,
-                    height: 60,
-                    borderColor: '#fdcf55',
-                    borderWidth: 3,
-                    padding: 5,
-                    borderRadius: 15,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: 20,
-                  }}>
-                  <Text
+                </View>
+                <View style={{alignItems: 'center'}}>
+                  <TextInput
+                    placeholder="Enter type name..."
+                    placeholderTextColor="rgba(255, 215, 0, 100)"
+                    //multiline={true}
                     style={{
                       color: '#fdcf55',
-                      fontWeight: 'bold',
-                      fontSize: 25,
+                      width: '80%',
+                      height: 60,
+                      borderColor: '#fdcf55',
+                      borderWidth: 3,
+                      padding: 10,
+                      borderRadius: 15,
+                      marginTop: 20,
+                      fontSize: 20,
+                    }}
+                    onChangeText={setInputText}
+                    value={inputText}
+                  />
+
+                  <TextInput
+                    placeholder="Discription..."
+                    placeholderTextColor="rgba(255, 215, 0, 100)"
+                    multiline={true}
+                    style={{
+                      color: '#fdcf55',
+                      width: '80%',
+                      height: 120,
+                      borderColor: '#fdcf55',
+                      borderWidth: 3,
+                      padding: 10,
+                      borderRadius: 15,
+                      marginTop: 20,
+                      fontSize: 20,
+                    }}
+                    onChangeText={setDiscriptionText}
+                    value={discriptionText}
+                  />
+
+                  {/**BTN add photo or Img*/}
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      ImagePicer();
+                    }}
+                    style={{
+                      color: '#fdcf55',
+                      width: '80%',
+                      height: 60,
+                      borderColor: '#fdcf55',
+                      borderWidth: 3,
+                      padding: 5,
+                      borderRadius: 15,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginTop: 20,
                     }}>
-                    ADD
-                  </Text>
-                </TouchableOpacity>
-              </View>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontWeight: 'bold',
+                        fontSize: 25,
+                      }}>
+                      ADD PHOTO
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      handleAddTipesOfTheGame();
+                    }}
+                    style={{
+                      color: '#fdcf55',
+                      width: 150,
+                      height: 60,
+                      borderColor: '#fdcf55',
+                      borderWidth: 3,
+                      padding: 5,
+                      borderRadius: 15,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginTop: 20,
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontWeight: 'bold',
+                        fontSize: 25,
+                      }}>
+                      ADD
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={{height: 300}}></View>
+              </ScrollView>
             </View>
           </Modal>
         </SafeAreaView>
