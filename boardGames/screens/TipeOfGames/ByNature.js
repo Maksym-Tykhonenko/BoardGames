@@ -18,7 +18,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 const tipes = [
   {
     title: 'Intellectual games',
-    photo: require('../../assets/Intellectual_games.jpeg'),
+    photo: require('../../assets/redisigen/1.jpg'),
     exampleGames: [
       {
         name: 'chess',
@@ -63,7 +63,7 @@ In summary, Go is a timeless and elegant game that challenges players to navigat
   },
   {
     title: 'Gambling games',
-    photo: require('../../assets/Gambling.webp'),
+    photo: require('../../assets/redisigen/4.jpg'),
     exampleGames: [
       {
         name: 'Poker',
@@ -166,7 +166,7 @@ const ByNatureGameScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/bgrN2.jpeg')}
+        source={require('../../assets/redisigen/backgr1.jpg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
@@ -183,6 +183,8 @@ const ByNatureGameScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -196,6 +198,13 @@ const ByNatureGameScreen = ({navigation}) => {
                 style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
+            <Image
+              source={require('../../assets/redisigen/1.png')}
+              style={{width: 60, height: 60}}
+            />
+
+            <TouchableOpacity
+              style={{width: 60, height: 60}}></TouchableOpacity>
           </View>
           <View style={{alignItems: 'center'}}>
             <Text style={{color: '#fdcf55', fontSize: 25}}>
@@ -269,6 +278,8 @@ const ByNatureGameScreen = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              borderWidth: 3,
+              borderColor: '#fdcf55',
               shadowColor: '#fdcf55',
               shadowOffset: {width: 0, height: 3},
               shadowOpacity: 0.9,
@@ -287,7 +298,7 @@ const ByNatureGameScreen = ({navigation}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',

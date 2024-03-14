@@ -107,7 +107,7 @@ const IntelectGameScreen = ({navigation, route}) => {
     <View style={{flex: 1}}>
       <ImageBackground
         style={{flex: 1}}
-        source={require('../../assets/bgrN2.jpeg')}>
+        source={require('../../assets/redisigen/backgr1.jpg')}>
         <SafeAreaView style={{marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             {/**SIDEBAR BTN open */}
@@ -119,6 +119,8 @@ const IntelectGameScreen = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -142,6 +144,8 @@ const IntelectGameScreen = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -270,7 +274,7 @@ const IntelectGameScreen = ({navigation, route}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',
@@ -382,7 +386,7 @@ const IntelectGameScreen = ({navigation, route}) => {
             visible={modalIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginTop: '30%',
                 borderColor: '#fdcf55',
@@ -529,6 +533,8 @@ const IntelectGameScreen = ({navigation, route}) => {
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 20,
+            borderWidth: 3,
+            borderColor: '#fdcf55',
             shadowColor: '#fdcf55',
             shadowOffset: {width: 0, height: 3},
             shadowOpacity: 0.9,

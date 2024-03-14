@@ -7,6 +7,7 @@ import {
   View,
   Modal,
   ScrollView,
+  Image,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -16,11 +17,11 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgrN2.jpeg')}
+        source={require('../assets/redisigen/backgr1.jpg')}
         style={{flex: 1}}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 10}}>
           {/**SIDEBAR BTN */}
-          <View style={{}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <TouchableOpacity
               style={{
                 width: 60,
@@ -29,6 +30,8 @@ const HomeScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -42,6 +45,14 @@ const HomeScreen = ({navigation}) => {
                 style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
+
+            <Image
+              source={require('../assets/redisigen/1.png')}
+              style={{width: 60, height: 60}}
+            />
+
+            <TouchableOpacity
+              style={{width: 60, height: 60}}></TouchableOpacity>
           </View>
 
           {/**Content */}
@@ -93,7 +104,7 @@ const HomeScreen = ({navigation}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',

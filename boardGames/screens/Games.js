@@ -93,7 +93,7 @@ const GamesScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgrN2.jpeg')}
+        source={require('../assets/redisigen/backgr1.jpg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{flex: 1, marginHorizontal: 10, position: 'relative'}}>
@@ -107,6 +107,8 @@ const GamesScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderColor: '#fdcf55',
+                borderWidth: 3,
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -121,6 +123,11 @@ const GamesScreen = ({navigation}) => {
               />
             </TouchableOpacity>
 
+            <Image
+              source={require('../assets/redisigen/1.png')}
+              style={{width: 60, height: 60}}
+            />
+
             {/**add tipes BTN */}
             <TouchableOpacity
               style={{
@@ -130,6 +137,8 @@ const GamesScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderColor: '#fdcf55',
+                borderWidth: 3,
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -195,10 +204,11 @@ const GamesScreen = ({navigation}) => {
                               bottom: 0,
                               width: 'auto',
                               fontSize: 25,
-                              backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                              backgroundColor: 'rgba(128, 128, 128, 0.9)',
                               width: '100%',
                               paddingLeft: 30,
                               color: '#fdcf55',
+                              fontWeight: 'bold',
                             }}>
                             {tipe.titel}
                           </Text>
@@ -227,7 +237,7 @@ const GamesScreen = ({navigation}) => {
                       shadowRadius: 10,
                     }}>
                     <Image
-                      source={require('../assets/natureOfGame.jpeg')}
+                      source={require('../assets/redisigen/4.jpg')}
                       style={{
                         width: 350,
                         height: 250,
@@ -242,10 +252,11 @@ const GamesScreen = ({navigation}) => {
                           bottom: 0,
                           width: 'auto',
                           fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                          backgroundColor: 'rgba(128, 128, 128, 0.9)',
                           width: '100%',
                           paddingLeft: 30,
                           color: '#fdcf55',
+                          fontWeight: 'bold',
                         }}>
                         By the nature of the game
                       </Text>
@@ -271,7 +282,7 @@ const GamesScreen = ({navigation}) => {
                       shadowRadius: 10,
                     }}>
                     <Image
-                      source={require('../assets/nastolnye-igry-dlya-kompanii.jpeg')}
+                      source={require('../assets/redisigen/2.jpg')}
                       style={{
                         width: 350,
                         height: 250,
@@ -286,10 +297,11 @@ const GamesScreen = ({navigation}) => {
                           bottom: 0,
                           width: 'auto',
                           fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                          backgroundColor: 'rgba(128, 128, 128, 0.9)',
                           width: '100%',
                           paddingLeft: 30,
                           color: '#fdcf55',
+                          fontWeight: 'bold',
                         }}>
                         By the number of players
                       </Text>
@@ -315,7 +327,7 @@ const GamesScreen = ({navigation}) => {
                       shadowRadius: 10,
                     }}>
                     <Image
-                      source={require('../assets/bgr.jpeg')}
+                      source={require('../assets/redisigen/3.jpg')}
                       style={{
                         width: 350,
                         height: 250,
@@ -330,10 +342,11 @@ const GamesScreen = ({navigation}) => {
                           bottom: 0,
                           width: 'auto',
                           fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                          backgroundColor: 'rgba(128, 128, 128, 0.9)',
                           width: '100%',
                           paddingLeft: 30,
                           color: '#fdcf55',
+                          fontWeight: 'bold',
                         }}>
                         By the mechanics of the game
                       </Text>
@@ -375,10 +388,11 @@ const GamesScreen = ({navigation}) => {
                           bottom: 0,
                           width: 'auto',
                           fontSize: 25,
-                          backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                          backgroundColor: 'rgba(128, 128, 128, 0.9)',
                           width: '100%',
                           paddingLeft: 30,
                           color: '#fdcf55',
+                          fontWeight: 'bold',
                         }}>
                         By the degree of cooperation players
                       </Text>
@@ -398,7 +412,7 @@ const GamesScreen = ({navigation}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',
@@ -510,7 +524,7 @@ const GamesScreen = ({navigation}) => {
             visible={modalIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginTop: '30%',
                 borderColor: '#fdcf55',

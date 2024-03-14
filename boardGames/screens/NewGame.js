@@ -21,7 +21,7 @@ const NewGame = ({navigation, route}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgrN2.jpeg')}
+        source={require('../assets/redisigen/backgr1.jpg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
@@ -38,6 +38,8 @@ const NewGame = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -77,6 +79,118 @@ const NewGame = ({navigation, route}) => {
               <View style={{height: 150}}></View>
             </ScrollView>
           </View>
+
+          {/**SIDEBAR */}
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={sideBarIsVisible}>
+            <View
+              style={{
+                backgroundColor: '#560eda',
+                flex: 1,
+                marginRight: '30%',
+                borderRightColor: '#fdcf55',
+                borderWidth: 3,
+                borderTopRightRadius: 10,
+                borderBottomRightRadius: 10,
+              }}>
+              {/**BTN route & close block */}
+              <View style={{marginTop: 70, marginLeft: 20}}>
+                {/**BTN SideBar Close */}
+
+                <TouchableOpacity
+                  onPress={() => {
+                    setSideBarIsVisible(false);
+                  }}
+                  style={{marginBottom: 10}}>
+                  <Text
+                    style={{
+                      color: '#fdcf55',
+                      fontSize: 40,
+                      fontWeight: 'bold',
+                    }}>
+                    X
+                  </Text>
+                </TouchableOpacity>
+                {/**BTN SideBar Route */}
+                <View>
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                      borderBottomWidth: 1,
+                      borderColor: '#fdcf55',
+                      width: 140,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('GamesScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      Games
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('ProfileScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      Profile
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{marginBottom: 10}}
+                    onPress={() => {
+                      navigation.navigate('HistoryScreen');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      History
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={{
+                      marginBottom: 10,
+                    }}
+                    onPress={() => {
+                      navigation.navigate('Home');
+                      setSideBarIsVisible(false);
+                    }}>
+                    <Text
+                      style={{
+                        color: '#fdcf55',
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                      }}>
+                      About
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal>
         </SafeAreaView>
         {/**BTN Back */}
         <TouchableOpacity
@@ -90,6 +204,8 @@ const NewGame = ({navigation, route}) => {
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 20,
+            borderWidth: 3,
+            borderColor: '#fdcf55',
             shadowColor: '#fdcf55',
             shadowOffset: {width: 0, height: 3},
             shadowOpacity: 0.9,

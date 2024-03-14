@@ -155,7 +155,7 @@ const ByNumberPlayersScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/bgrN2.jpeg')}
+        source={require('../../assets/redisigen/backgr1.jpg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{
@@ -172,6 +172,8 @@ const ByNumberPlayersScreen = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -257,6 +259,8 @@ const ByNumberPlayersScreen = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              borderWidth: 3,
+              borderColor: '#fdcf55',
               shadowColor: '#fdcf55',
               shadowOffset: {width: 0, height: 3},
               shadowOpacity: 0.9,
@@ -275,7 +279,7 @@ const ByNumberPlayersScreen = ({navigation}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',

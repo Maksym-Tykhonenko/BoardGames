@@ -106,11 +106,11 @@ const ProfileScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/bgrN2.jpeg')}
+        source={require('../assets/redisigen/backgr1.jpg')}
         style={{flex: 1}}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 10}}>
           {/**SIDEBAR BTN */}
-          <View style={{}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <TouchableOpacity
               style={{
                 width: 60,
@@ -123,6 +123,8 @@ const ProfileScreen = ({navigation}) => {
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
                 shadowRadius: 10,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
               }}
               onPress={() => {
                 setSideBarIsVisible(true);
@@ -132,6 +134,14 @@ const ProfileScreen = ({navigation}) => {
                 style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
+
+            <Image
+              source={require('../assets/redisigen/1.png')}
+              style={{width: 60, height: 60}}
+            />
+
+            <TouchableOpacity
+              style={{width: 60, height: 60}}></TouchableOpacity>
           </View>
 
           {/**Content */}
@@ -364,7 +374,7 @@ const ProfileScreen = ({navigation}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',
@@ -474,7 +484,7 @@ const ProfileScreen = ({navigation}) => {
             visible={modalIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginTop: '30%',
                 borderColor: '#fdcf55',
@@ -591,7 +601,7 @@ const ProfileScreen = ({navigation}) => {
             onPress={() => {
               navigation.goBack();
             }}>
-            <Entypo name="back" style={{fontSize: 40, color: 'gold'}} />
+            <Entypo name="back" style={{fontSize: 40, color: '#fdcf55'}} />
           </TouchableOpacity>
         </SafeAreaView>
       </ImageBackground>

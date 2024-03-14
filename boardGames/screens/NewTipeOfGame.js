@@ -102,7 +102,7 @@ const NewTipeOfGame = ({navigation, route}) => {
     <View style={{flex: 1}}>
       <ImageBackground
         style={{flex: 1}}
-        source={require('../assets/bgrN2.jpeg')}>
+        source={require('../assets/redisigen/backgr1.jpg')}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             {/**SIDEBAR BTN open */}
@@ -114,6 +114,8 @@ const NewTipeOfGame = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -128,6 +130,11 @@ const NewTipeOfGame = ({navigation, route}) => {
               />
             </TouchableOpacity>
 
+            <Image
+              source={require('../assets/redisigen/1.png')}
+              style={{width: 60, height: 60}}
+            />
+
             {/**add tipes BTN */}
             <TouchableOpacity
               style={{
@@ -137,6 +144,8 @@ const NewTipeOfGame = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 20,
+                borderWidth: 3,
+                borderColor: '#fdcf55',
                 shadowColor: '#fdcf55',
                 shadowOffset: {width: 0, height: 3},
                 shadowOpacity: 0.9,
@@ -207,6 +216,8 @@ const NewTipeOfGame = ({navigation, route}) => {
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 20,
+              borderWidth: 3,
+              borderColor: '#fdcf55',
               shadowColor: '#fdcf55',
               shadowOffset: {width: 0, height: 3},
               shadowOpacity: 0.9,
@@ -225,7 +236,7 @@ const NewTipeOfGame = ({navigation, route}) => {
             visible={sideBarIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginRight: '30%',
                 borderRightColor: '#fdcf55',
@@ -337,7 +348,7 @@ const NewTipeOfGame = ({navigation, route}) => {
             visible={modalIsVisible}>
             <View
               style={{
-                backgroundColor: '#000',
+                backgroundColor: '#560eda',
                 flex: 1,
                 marginTop: '30%',
                 borderColor: '#fdcf55',
