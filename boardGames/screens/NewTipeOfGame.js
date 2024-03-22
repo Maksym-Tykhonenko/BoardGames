@@ -102,7 +102,7 @@ const NewTipeOfGame = ({navigation, route}) => {
     <View style={{flex: 1}}>
       <ImageBackground
         style={{flex: 1}}
-        source={require('../assets/redisigen/backgr1.jpg')}>
+        source={require('../assets/bgrN2.jpeg')}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             {/**SIDEBAR BTN open */}
@@ -129,12 +129,12 @@ const NewTipeOfGame = ({navigation, route}) => {
                 style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
-
+            {/**
             <Image
               source={require('../assets/redisigen/1.png')}
               style={{width: 60, height: 60}}
             />
-
+ */}
             {/**add tipes BTN */}
             <TouchableOpacity
               style={{

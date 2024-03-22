@@ -125,7 +125,7 @@ const ByCooperationsScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../../assets/redisigen/backgr1.jpg')}
+        source={require('../../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView
           style={{

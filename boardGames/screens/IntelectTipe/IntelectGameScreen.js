@@ -107,7 +107,7 @@ const IntelectGameScreen = ({navigation, route}) => {
     <View style={{flex: 1}}>
       <ImageBackground
         style={{flex: 1}}
-        source={require('../../assets/redisigen/backgr1.jpg')}>
+        source={require('../../assets/bgrN2.jpeg')}>
         <SafeAreaView style={{marginHorizontal: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             {/**SIDEBAR BTN open */}

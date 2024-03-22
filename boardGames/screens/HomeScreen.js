@@ -17,7 +17,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={require('../assets/redisigen/backgr1.jpg')}
+        source={require('../assets/bgrN2.jpeg')}
         style={{flex: 1}}>
         <SafeAreaView style={{flex: 1, marginHorizontal: 10}}>
           {/**SIDEBAR BTN */}
@@ -45,12 +45,12 @@ const HomeScreen = ({navigation}) => {
                 style={{fontSize: 40, color: '#fdcf55'}}
               />
             </TouchableOpacity>
-
+            {/** 
             <Image
               source={require('../assets/redisigen/1.png')}
               style={{width: 60, height: 60}}
             />
-
+*/}
             <TouchableOpacity
               style={{width: 60, height: 60}}></TouchableOpacity>
           </View>
